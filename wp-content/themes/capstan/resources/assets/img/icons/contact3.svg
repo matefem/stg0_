@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="24px" viewBox="0 0 12 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>noun_question mark_1355938 2</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1.000000 0 0 0 0 0.000000 0 0 0 0 0.000260 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="D---13---Contact" transform="translate(-814.000000, -745.000000)">
+            <g id="Group-12" transform="translate(345.000000, 690.000000)">
+                <g id="Group-11-Copy-2" transform="translate(400.000000, 0.000000)">
+                    <g id="Group-2" transform="translate(8.000000, 0.000000)">
+                        <g id="noun_question-mark_1355938" transform="translate(61.000000, 55.000000)" filter="url(#filter-1)">
+                            <g>
+                                <path d="M6,0 C2.86153846,0 0.276923077,2.688 0.276923077,5.952 C0.276923077,6.48 0.692307692,6.912 1.2,6.912 C1.70769231,6.912 2.12307692,6.48 2.12307692,5.952 C2.12307692,3.744 3.83076923,1.92 6,1.92 C8.12307692,1.92 9.92307692,3.792 9.92307692,6.048 C9.92307692,8.208 9.18461538,8.736 8.07692308,9.552 C7.84615385,9.696 7.66153846,9.888 7.43076923,10.032 C5.16923077,11.808 4.2,14.64 4.56923077,18.192 C4.61538462,18.672 5.03076923,19.056 5.49230769,19.056 C5.53846154,19.056 5.53846154,19.056 5.58461538,19.056 C6.09230769,19.008 6.46153846,18.528 6.41538462,18 C6.09230769,15.12 6.83076923,12.96 8.58461538,11.568 C8.76923077,11.424 8.95384615,11.28 9.18461538,11.136 C10.3384615,10.272 11.8153846,9.216 11.8153846,6.048 C11.7230769,2.688 9.13846154,0 6,0 Z" id="Path" fill="#000000" fill-rule="nonzero"></path>
+                                <ellipse id="Oval" fill="#000000" fill-rule="nonzero" cx="5.53846154" cy="22.08" rx="1.84615385" ry="1.92"></ellipse>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

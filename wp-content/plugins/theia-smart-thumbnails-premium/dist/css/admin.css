@@ -1,0 +1,220 @@
+@font-face {
+  font-family: 'theiaSmartThumbnails_icomoon';
+  src: url("../../assets/fonts/icomoon.eot?-quw8jc");
+  src: url("../../assets/fonts/icomoon.eot?#iefix-quw8jc") format("embedded-opentype"), url("../../assets/fonts/icomoon.woff?-quw8jc") format("woff"), url("../../assets/fonts/icomoon.ttf?-quw8jc") format("truetype"), url("../../assets/fonts/icomoon.svg?-quw8jc#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+[class^="tst-icon-"], [class*=" tst-icon-"] {
+  font-family: 'theiaSmartThumbnails_icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.tst-icon-target:before {
+  content: "\e27a"; }
+
+.tst-icon-target2:before {
+  content: "\e27b"; }
+
+.tst-icon-eye:before {
+  content: "\e2d9"; }
+
+.settings_page_theia-smart-thumbnails .update-nag,
+.settings_page_theia-smart-thumbnails #fs_promo_tab,
+.settings_page_theia-smart-thumbnails-account .update-nag,
+.settings_page_theia-smart-thumbnails-account #fs_promo_tab,
+.settings_page_theia-smart-thumbnails-contact .update-nag,
+.settings_page_theia-smart-thumbnails-contact #fs_promo_tab,
+.settings_page_theia-smart-thumbnails-pricing .update-nag,
+.settings_page_theia-smart-thumbnails-pricing #fs_promo_tab {
+  display: none; }
+
+.theia-smart-thumbnails-admin-dashboard h3:not(:first-child) {
+  margin-top: 0; }
+
+.tst_previewSizes {
+  width: 500px;
+  height: 12em; }
+
+.tst_sizesTable {
+  border-spacing: 0;
+  border-collapse: separate;
+  width: 100%; }
+  .tst_sizesTable th {
+    width: 16.666%;
+    padding: 10px;
+    text-align: left; }
+  .tst_sizesTable td {
+    padding: 10px; }
+  .tst_sizesTable tr:nth-child(2n) {
+    background: rgba(0, 0, 0, 0.075); }
+
+.tst_aboutCropToFit {
+  border-collapse: collapse; }
+  .tst_aboutCropToFit td {
+    padding: 0 20px 0 0;
+    text-align: center;
+    vertical-align: bottom;
+    font-weight: bold; }
+  .tst_aboutCropToFit img {
+    border: 1px dotted #aaa; }
+
+.theiaSmartThumbnails_adminTitle {
+  padding-bottom: 12px !important;
+  vertical-align: middle; }
+  .theiaSmartThumbnails_adminTitle a {
+    display: inline-block;
+    margin: 0 5px 0 0;
+    vertical-align: middle;
+    font-size: 0;
+    line-height: 0; }
+
+.theiaSmartThumbnails_adminLogo {
+  float: right; }
+
+.theiaSmartThumbnails_adminVersion {
+  font-size: 20px;
+  font-weight: bold; }
+
+.theiaSmartThumbnails_adminPreview {
+  padding: 8px;
+  border: 1px solid #ccc; }
+  .theiaSmartThumbnails_adminPreview .theiaSmartThumbnails_slides img {
+    float: left;
+    max-width: 50%;
+    height: auto;
+    margin: 0 8px 8px 0;
+    padding: 1px;
+    border: 1px solid #ccc; }
+
+.theiaSmartThumbnails_news {
+  width: 100%;
+  height: 462px;
+  margin: -10px -10px; }
+
+.theiaSmartThumbnails_defaultPosition #focus_point_picker {
+  display: inline-block; }
+
+.theiaSmartThumbnails_proOnly {
+  background: #8E44AD;
+  color: #fff;
+  padding: 3px 5px;
+  font-size: 11px;
+  border-radius: 3px; }
+
+.theiaSmartThumbnails_mediaUpload .tst-icon {
+  margin: 0 5px 0 0;
+  vertical-align: text-bottom;
+  font-size: 20px; }
+
+.theiaSmartThumbnails_mediaUpload ._crosshair {
+  text-shadow: 0 0 1px #fff, 0 0 1px #fff, 0 0 1px #fff;
+  position: absolute;
+  margin: -14px 0 0 -15px;
+  font-size: 32px;
+  display: none;
+  mix-blend-mode: difference;
+  filter: brightness(10); }
+
+.theiaSmartThumbnails_mediaUpload ._overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair; }
+
+.theiaSmartThumbnails_mediaUpload ._picker {
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  line-height: 0; }
+  .theiaSmartThumbnails_mediaUpload ._picker img {
+    max-width: 458px;
+    max-height: 300px;
+    border-radius: 3px;
+    overflow: hidden; }
+
+.theiaSmartThumbnails_mediaUpload ._preview > div {
+  display: inline-block;
+  margin: 0 8px 8px 0;
+  background: #DFDFDF;
+  border-radius: 3px;
+  overflow: hidden; }
+  .theiaSmartThumbnails_mediaUpload ._preview > div:last-child {
+    margin-right: 0; }
+
+.theiaSmartThumbnails_mediaUpload ._preview ._imageContainer {
+  position: relative;
+  overflow: hidden; }
+  .theiaSmartThumbnails_mediaUpload ._preview ._imageContainer img {
+    max-width: none;
+    max-height: none; }
+
+.theiaSmartThumbnails_mediaUpload ._preview ._caption {
+  margin-top: 1px;
+  padding: 1px 5px; }
+
+.theiaSmartThumbnails_mediaUpload ._preview img {
+  position: absolute; }
+
+.theiaSmartThumbnails_mediaUpload ._previewButton {
+  margin: 0 0 8px 0 !important; }
+
+.theiaSmartThumbnails_mediaUpload ._loader {
+  background: url("../../assets/images/ajax-loader.gif") rgba(255, 255, 255, 0.8) no-repeat center center; }
+
+body.wp-admin .compat-field-theiaSmartThumbnails_positionPicker,
+body.fl-builder .compat-field-theiaSmartThumbnails_positionPicker {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd; }
+  body.wp-admin .compat-field-theiaSmartThumbnails_positionPicker label span,
+  body.fl-builder .compat-field-theiaSmartThumbnails_positionPicker label span {
+    font-weight: bold; }
+  body.wp-admin .compat-field-theiaSmartThumbnails_positionPicker .label,
+  body.fl-builder .compat-field-theiaSmartThumbnails_positionPicker .label {
+    min-width: 0; }
+  body.wp-admin .compat-field-theiaSmartThumbnails_positionPicker .field,
+  body.fl-builder .compat-field-theiaSmartThumbnails_positionPicker .field {
+    float: none;
+    clear: both;
+    width: auto; }
+  body.wp-admin .compat-field-theiaSmartThumbnails_positionPicker ._picker img,
+  body.fl-builder .compat-field-theiaSmartThumbnails_positionPicker ._picker img {
+    box-sizing: border-box;
+    max-width: 100% !important;
+    max-height: 300px !important; }
+  body.wp-admin .compat-field-theiaSmartThumbnails_positionPicker ._previewButton,
+  body.fl-builder .compat-field-theiaSmartThumbnails_positionPicker ._previewButton {
+    margin-top: 10px !important;
+    display: block; }
+
+body.fl-builder .compat-field-theiaSmartThumbnails_positionPicker .label {
+  border: 0; }
+  body.fl-builder .compat-field-theiaSmartThumbnails_positionPicker .label .alignleft {
+    text-align: left;
+    margin: 0; }
+
+body.fl-builder .compat-field-theiaSmartThumbnails_positionPicker .field {
+  border: 0;
+  font-size: 12px; }
+
+.theiaSmartThumbnails_mediaUpload._gutenberg ._picker img {
+  max-width: 100%;
+  border: none; }
+
+.theiaSmartThumbnails_mediaUpload._gutenberg ._preview > div {
+  background: #f0f0f0; }
+
+.theiaSmartThumbnails_mediaUpload._gutenberg ._preview ._caption {
+  padding: 0 5px;
+  background: none;
+  font-size: 11px; }

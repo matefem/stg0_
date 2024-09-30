@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="17px" viewBox="0 0 16 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Path</title>
+    <defs>
+        <filter x="-2.9%" y="-15.0%" width="105.8%" height="130.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="News" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="M---02---Article---Reading-Bar" transform="translate(-22.000000, -104.000000)" fill="#F00000" fill-rule="nonzero">
+            <g id="Desktop-/-Header" filter="url(#filter-1)" transform="translate(0.000000, 70.000000)">
+                <g id="Back" transform="translate(10.000000, 20.000000)">
+                    <polygon id="Path" transform="translate(20.090909, 20.818182) rotate(-45.000000) translate(-20.090909, -20.818182) " points="17.9903021 17.2727273 17.9903021 18.0890253 22.243215 18.0890253 16.5454545 23.7867857 17.1223052 24.3636364 22.8200656 18.665876 22.8200656 22.9187888 23.6363636 22.9187888 23.6363636 18.0890253 23.6363636 17.2727273 22.8200656 17.2727273"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

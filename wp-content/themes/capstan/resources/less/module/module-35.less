@@ -1,0 +1,260 @@
+.module-35 {
+	width:100%;
+	position:relative;
+	padding-top: 70px;
+	padding-bottom: 70px;
+	padding-left:@padding;
+	padding-right:@padding;
+	box-sizing:border-box;
+	background:@dark;
+
+	overflow:hidden;
+
+	.content {
+
+		.liste {
+
+			.item {
+
+				opacity:1;
+				transition: opacity 0.2s linear;
+				margin-bottom:50px;
+
+				.image {
+					display:block;
+					width:100%;
+					img {
+						width:100%;
+						transition: opacity 0.3s linear;
+					}
+
+					.image-container {
+						padding-top:100%;
+						width:100%;
+						display: block;
+						position: relative;
+
+						picture {
+							height:100%;
+							width:100%;
+						}
+
+						img {
+							position: absolute;
+							top:0px;
+							left:0px;
+							height:100%;
+							width:100%;
+							object-fit: cover;
+						}
+
+					}
+				}
+
+				.text {
+					display:flex;
+					margin-top:30px;
+					margin-bottom:30px;
+					cursor:pointer;
+
+					.number {
+						color:@red;
+						font-size:22px;
+						margin-right: 20px;
+						top:3px;
+						position:relative;
+						.tiempo-light();
+						display:none;
+					}
+
+					.title {
+						color:@white;
+						font-size:26px;
+						line-height:34px;
+						.tiempo-light();
+					}
+				}
+
+				.inner {
+					overflow:hidden;
+					transition: height 0.4s @in-out-quad;
+					will-change: height;
+				}
+
+				.description {
+					color:@white;
+					font-size:16px;
+					line-height:27px;
+					opacity:0.7;
+					.frutiger-roman();
+				}
+
+				ul {
+					margin-top:50px;
+					display:none;
+
+					li {
+						font-size:16px;
+						line-height:28px;
+						color:rgba(255, 255, 255, 0.5);
+						list-style-type:none;
+						.frutiger-roman();
+						padding-left:20px;
+						position:relative;
+						margin-bottom: 10px;
+
+						i {
+							font-size:8px;
+							top:-2px;
+							position:absolute;
+							top:9px;
+							left:0px;
+						}
+					}
+				}
+
+
+				a {
+					.frutiger-roman();
+					color:@white;
+					font-size:13px;
+					text-transform:uppercase;
+					letter-spacing:0.1em;
+					padding-top: 30px;
+					display:block;
+					font-size:12px;
+
+					i {
+						font-size: 16px;
+					    top: 2px;
+					    position: relative;
+					    margin-left: 15px;
+					    display:inline-block;
+					    transition: transform 0.2s @in-out-quad;
+
+					    &:before {
+					    	color:@red;
+					    }
+					}
+
+					&:hover {
+						i {
+							transform: translate3d(10px, 0, 0);
+						}
+					}
+				}
+
+			}
+
+		}
+
+	}
+
+	@media @desktop {
+		padding-top: 130px;
+		padding-left:@padding_desktop;
+		padding-right:@padding_desktop;
+		padding-bottom: 130px;
+
+		.title {
+			font-size:80px;
+			line-height:90px;
+			margin-bottom:60px;
+			text-align:left;
+		}
+
+		.content {
+
+		.liste {
+
+			.item {
+				display: flex;
+				transition: opacity 0.2s linear;
+				margin-bottom: 30px;
+
+				opacity: 0.2;
+				&.active, &:hover {
+					opacity:1;
+				}
+
+				.text {
+					margin-top: 20px;
+    				margin-bottom: 20px;
+
+					.number {
+						font-size:29px;
+						line-height:29px;
+						display:block;
+						margin-right: 60px;
+						top:10px;
+						position:relative;
+					}
+
+					.title {
+						font-size:40px;
+						line-height:48px;
+						margin-bottom: 0px;
+					}
+				}
+
+				.description {
+					padding-left: 90px;
+					max-width:520px;
+				}
+
+				ul {
+					display:flex;
+					padding-left: 90px;
+					flex-wrap: wrap;
+					margin-top: 60px;
+					margin-bottom: 30px;
+					justify-content: space-between; 
+
+					li {
+						width:45%;
+						box-sizing:border-box;
+					    font-size: 15px;
+						line-height: 26px;
+					}
+				}
+
+				.image {
+					max-width:300px;
+					display:block;
+					width:50%;
+					position:relative;
+
+					.image-container {
+						padding-top:116%;
+						position:absolute;
+					}
+
+					img {
+						display:block;
+						position:absolute;
+						top:0px;
+						left:0px;
+						width:100%;
+					}
+				}
+
+				.infos {
+					width:100%;
+					margin-left: 70px;
+				}
+
+				a {
+					margin-left: 90px;
+					margin-top:0px;
+					font-size:14px;
+
+				}
+			}
+
+		}
+
+	}
+
+	}
+	    
+}

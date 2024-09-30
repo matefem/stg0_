@@ -1,0 +1,140 @@
+#account {
+    padding-top: 40px;
+
+    @media @desktop {
+        padding-top: 100px;
+    }
+
+    .account-head {
+        background: #F7F7F7;
+        padding: 40px 30px;
+
+        @media @desktop {
+            padding-top: 100px;
+            padding-left: 140px;
+        }
+
+        .head-title {
+            .frutiger-roman();
+            font-size: 11px;
+            line-height: 22px;
+            color: rgba(34, 34, 34, 0.5);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            @media @desktop {
+                font-size: 12px;
+            }
+        }
+
+        .head-subtitle {
+            margin-top: 17px;
+            .tiempo-medium();
+            font-size: 46px;
+            line-height: 59px;
+            color: @dark;
+        }
+
+        .head-logout {
+            margin-top: 5px;
+            .frutiger-bold();
+            font-size: 16px;
+            line-height: 20px;
+            color: @dark;
+            cursor: pointer;
+
+            i {
+                margin-left: 8px;
+                vertical-align: middle;
+                transition: transform 0.3s ease-in-out;
+                position: relative;
+                display: inline-block;
+
+                &:before {color: @dark;}
+            }
+
+            &:hover {
+                i {transform: translate3d(5px, 0px, 0);}
+            }
+        }
+
+        .button-favoris {
+            display: inline-flex;
+
+            @media @desktop {
+                margin-top: 32px;
+            }
+        }
+    }
+
+    form {
+        background: white;
+
+        @media @desktop {
+            padding-left: 140px;
+            margin-top: 30px;
+        }
+
+        .separator {
+            border-top: 1px solid #EEEEEE;
+            margin-top: 10px;
+
+            @media @desktop {
+                border: 1px solid #EEEEEE;
+                max-width: 580px;
+                padding-bottom: 10px;
+                margin-top: -1px;
+            }
+
+            > * {
+                @media @desktop {
+                    margin-top: 0px;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+
+            &:not(.no-padding-top) {
+                padding-top: 20px;
+
+                @media @desktop {
+                    padding-top: 10px;
+                }
+            }
+
+            &.buttons-wrapper {
+                @media @desktop {
+                    border: none;
+                    display: flex;
+                    margin-top: 30px;
+                }
+
+                button:first-child {
+                    @media @desktop {
+                        margin-left: 0px;
+                    }
+                }
+            }
+        }
+
+        button[name='form-button'] {
+            margin-left: 30px;
+            width: calc(100% - 60px);
+            margin-bottom: 20px;
+        }
+
+        .separator {
+            button[name='form-button'] {
+                margin-bottom: 30px;
+                justify-content: center;
+            }
+        }
+
+        div[name='form-text'] {
+            margin-left: 15px;
+            width: calc(100% - 30px);
+        }
+    }
+}
+
+

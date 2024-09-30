@@ -1,0 +1,253 @@
+.module-03 {
+	width:100%;
+	position:relative;
+	padding-top: 90px;
+	padding-bottom: 90px;
+	padding-left:@padding;
+	padding-right:@padding;
+	box-sizing:border-box;
+	background:@dark;
+	user-select:none;
+	overflow:hidden;
+
+	.infos {
+		.title {
+			.f-h2-light();
+			color:@white;
+			text-align:center;
+		}
+
+		.description {
+			color:@white;
+			opacity: 0.7;
+			.f-arianne();
+			font-size:16px;
+			line-height:27px;
+			margin-top: 40px;
+			text-align:center;
+		}
+	}
+	.gallery {
+		margin-top: 60px;
+		margin-left:-@padding;
+		margin-right:-@padding;
+		padding-left:@padding;
+		white-space: nowrap;
+		padding-bottom: 30px;
+		cursor: grab;
+		transition: 0.6s @out-expo;
+		touch-action: pan-y;
+
+		.item {
+			width:80%;
+			margin-right:@padding;
+			display:inline-block;
+			position:relative;
+			vertical-align: top;
+
+			&:hover {
+				.img-container {
+					transform: scale(1.1);
+				}		
+			}
+			
+			.img-container {
+				transition: transform 1s @in-out-quad;
+				border:1px solid red;
+				position:relative;
+				padding-top:150%;
+				&:after {
+					background:black;
+					opacity: 0.3;
+					position:absolute;
+					top:-1%;
+					left:-1%;
+					width:102%;
+					height:102%;
+					content: "";
+				}
+			}
+
+			img {
+				width:100%;
+				transition: transform 0.8s @out-quad;
+				position:absolute;
+				top:-20%;
+				left:-20%;
+				width:140%;
+				height:140%;
+				object-fit: cover;
+			}
+
+			.text {
+				position:absolute;
+				top:40px;
+				left:20px;
+				right:20px;
+				bottom:40px;
+				white-space: normal;
+
+				.number {
+					.frutiger-roman();
+					font-size:16px;
+					color:@red;
+				}
+
+				.title {
+					margin-top:20px;
+					.tiempo-light();
+					font-size:34px;
+					color:@white;
+				}
+
+				.description {
+					display:none;
+				}
+
+				a {
+					position:absolute;
+					bottom:0px;
+					.frutiger-roman();
+					color:@white;
+					font-size:13px;
+					text-transform:uppercase;
+					letter-spacing:0.1em;
+
+					i {
+						font-size: 16px;
+					    top: 2px;
+					    position: relative;
+					    margin-left: 15px;
+					    display:inline-block;
+					    transition: transform 0.2s @in-out-quad;
+
+					    &:before {
+					    	color:@red;
+					    }
+					}
+
+					&:hover {
+						i {
+							transform: translate3d(10px, 0, 0);
+						}
+					}
+				}
+			}
+		
+		}
+
+	}
+
+	&.white {
+		background:@white;
+
+		.infos {
+			.title {
+				color:@dark;
+			}
+
+			.description {
+				color:@dark;
+			}
+		}
+
+	}
+
+	&.center {
+
+		@media @desktop {
+
+			.infos {
+				padding-left: 115px;
+	    		padding-right: 115px;
+
+				.title {
+					text-align:center;
+					display:block;
+				    width: 100%;
+				    margin-bottom: 40px;
+				}
+
+				.description {
+					text-align:center;
+					display:block;
+				    width: 100%;
+				    margin-left: 0px;
+				}
+			}
+
+		}
+
+	}
+
+	.gallery-scrollbar {
+		background: rgba(255, 255, 255, 0.1);
+		height:2px;
+		width:100%;
+		overflow:hidden;
+		.inner {
+			background:@red;
+			height:2px;
+			width:100%;
+			transform-origin: 0% 0%;
+			transition: transform 1s @out-cubic;
+
+		}
+	}
+
+	@media @desktop {
+		padding-top: 40px;
+		padding-left:@padding_desktop;
+		padding-right:@padding_desktop;
+		padding-bottom: 120px;
+
+		.infos {
+			.title {
+				text-align:left;
+				display:inline-block;
+				width: 50%;
+				vertical-align: top;
+			}
+
+			.description {
+				text-align:left;
+				display:inline-block;
+			    width: 32%;
+				margin-left: 12%;
+				vertical-align: top;
+				margin-top: 0px;
+			}
+		}
+
+		.gallery {
+			margin-top:30px;
+			margin-left:-@padding_desktop;
+			margin-right:-@padding_desktop;
+			padding-left:@padding_desktop;
+			padding-right:(@padding_desktop) - 30;
+
+			.item {
+				max-width: 460px;
+				width:40%;
+				margin-right:30px;
+
+				.text {
+					left:40px;
+					right:40px;
+
+					.description {
+						position: absolute;
+    					bottom: 70px;
+						display:block;
+						margin-top:20px;
+						.frutiger-roman();
+						font-size:15px;
+						line-height:24px;
+						color:@white;
+					}
+				}
+			}
+		}
+
+	}
+}

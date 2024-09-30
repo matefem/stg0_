@@ -1,0 +1,60 @@
+.error404-content {
+	min-height:80vh;
+	text-align:center;
+	.title {
+		font-size: 200px;
+		color: @red;
+		text-align:center;
+
+		padding-top:80px;
+		padding-bottom:80px;
+		.tiempo-medium()
+	}
+
+	.content {
+		padding-left:@padding;
+		padding-right:@padding;
+		margin:auto;
+		display:inline-block;
+		h2 {
+			color :@dark;
+			.tiempo-medium();
+			font-size: 28px;
+		}
+
+		p {
+			margin-top:25px;
+			color :@dark;
+			font-size: 16px;
+			opacity: 0.8;
+			.frutiger-roman();
+		}
+
+		.link-plus {
+			margin-top:30px;
+			display:inline-block;
+			color :@dark;
+		}
+	}
+
+	@media @desktop {
+		display:flex;
+		text-align: left;
+		align-items: center;
+		padding-top:80px;
+
+		.title {
+			font-size: 400px;
+			line-height:400px;
+			text-align:left;
+		}
+		.content {
+			padding-left:40px;
+			padding-right:40px;
+			h2 {
+				font-size: 46px;
+			}
+		}
+
+	}
+}

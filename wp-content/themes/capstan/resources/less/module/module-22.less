@@ -1,0 +1,278 @@
+.module-22 {
+	width:100%;
+	position:relative;
+	padding-top: 70px;
+	padding-bottom: 30px;
+	padding-left:@padding;
+	padding-right:@padding;
+	box-sizing:border-box;
+	background:@grey;
+
+	.title {
+		.f-h2-medium();
+		color:@dark;
+		margin-bottom: 40px;
+		font-size:46px;
+		line-height:49px;
+	}
+
+	.columns {
+
+		.item {
+			border-top:1px solid rgba(34,34,34, 0.1);
+			padding-top: 40px;
+			padding-bottom: 40px;
+
+			.date {
+				color:@red;
+				.tiempo-light();
+				font-size:30px;
+				line-height:48px;
+			}
+
+			.subtitle {
+				color:@dark;
+				.tiempo-light();
+				font-size:24px;
+				line-height:34px;
+				margin-top: 10px;
+			}
+
+			.description {
+				color:@dark;
+				.frutiger-roman();
+				font-size:14px;
+				line-height:24px;
+				opacity:0.7;
+				margin-top: 30px;
+			}
+
+			.infos {
+				margin-top: 40px;
+				margin-bottom: 30px;
+
+				.info {
+					margin-top:20px;
+					.name {
+						font-size:13px;
+						text-transform:uppercase;
+						.frutiger-roman();
+						display: inline-block;
+    					width: 90px;
+    					letter-spacing: 0.1em;
+					}
+
+					.value {
+						font-size:15px;
+						.frutiger-roman();
+						opacity:0.7;
+					}
+
+
+				}
+
+				.hours {
+					cursor:pointer;
+					position:relative;
+					i {
+						font-size:6px;
+						opacity: 0.7;
+						position:absolute;
+						line-height:6px;
+						right:0px;
+						top:2px;
+						transition: 0.4s @in-out-quad;
+					}
+
+					.all-dates {
+						will-change: height;
+						overflow:hidden;
+						width:100%;
+						margin-top:23px;
+
+						transition: height 0.5s @in-out-quad;
+						.single-date {
+							font-size:14px;
+							.frutiger-roman();
+							letter-spacing:-0.04em;
+							opacity: 0.7;
+							display:flex;
+							line-height:36px;
+							.left {
+								flex:1;
+								display:inline-block;
+							}
+							.right {
+								display:inline-block;
+								text-align:right;
+							}
+						}
+					}
+				}
+			}
+
+			.link-top {
+				i {
+					display:inline-block;
+					transition: transform 0.3s @in-quad;
+				}
+
+				&:hover {
+					i {
+						transition: transform 0.3s @out-quad;
+						transform: translate3d(3px, -3px, 0);
+					}
+				}
+			}
+		}
+	}
+	
+
+	&.black {
+		background:@dark;
+
+		.title {
+			color:@white;
+		}
+
+		.subtitle {
+			color:@white;
+		}
+
+		.description {
+			color:@white;
+		}
+
+		.columns {
+
+			.item {
+				border-top:1px solid rgba(255,255,255, 0.1);
+	
+				.subtitle {
+					color:@white;
+				}
+
+				.description {
+					color:@white;
+				}
+
+				.infos {
+					
+					.info {
+						
+						.name {
+							color:@white;
+						}
+
+						.value {
+							color:@white;
+						}
+						i {
+							color:@white;
+						}
+
+					}
+
+				}
+
+				.all-dates {
+					color:@white;
+				}
+
+				.link-top {
+					color:@white;
+					border: 1px solid rgba(255,255,255, 0.1);
+
+					transition: border 0.3s linear;
+
+					&:hover {
+						border: 1px solid rgba(255,255,255, 0.5);
+
+					}
+				}
+
+				@media @desktop {
+					border-top:0px;
+					border-right: 1px solid rgba(255,255,255, 0.1);
+				}
+			}
+		}
+	}
+
+	@media @desktop {
+		padding-top: 130px;
+		padding-left:@padding_desktop;
+		padding-right:@padding_desktop;
+		padding-bottom: 90px;
+		text-align: center;
+
+		.title {
+			font-size:80px;
+			line-height:90px;
+			margin-bottom:60px;
+			text-align:left;
+		}
+
+		.columns {
+			margin-right:-40px;
+			margin-left:-40px;
+			position:relative;
+
+			.item {
+				border-top:0px;
+				border-right:1px solid #F4F4F4;
+				text-align:left;
+				width:33%;
+				display:inline-block;
+				box-sizing:border-box;
+				padding-right:40px;
+				padding-left:40px;
+				vertical-align:top;
+				padding-top: 20px;
+				padding-bottom: 0px;
+
+				.date {
+					font-size:44px;
+					line-height:44px;
+				}
+
+				.subtitle {
+					margin-top: 40px;
+					font-size:24px;
+				}
+
+				.description {
+					font-size:14px;
+					line-height:24px;
+					margin-top: 30px;
+				}
+
+				.infos {
+
+					.info {
+						
+						.name {
+							font-size:11px;
+						}
+
+						.value {
+							font-size:14px;
+						}
+
+					}
+
+				}
+
+				&:nth-child(3) {
+					border-right:0px;
+				}
+
+			}
+
+		}
+
+
+	}
+
+	    
+}

@@ -1,0 +1,80 @@
+<!-- mjml templates/event-webinar-subscribe.mjml -o exports/event-webinar-subscribe.php -->
+
+<mjml>
+
+	<mj-head>
+		<mj-font name="Roboto" href="https://fonts.googleapis.com/css?family=Roboto" />
+		<mj-font name="Georgia" href="https://fonts.googleapis.com/css?family=Georgia" />
+
+		<mj-attributes>
+			<mj-all font-family="Roboto, Arial"/>
+			<mj-text color="#222222" font-family="Roboto, Arial" font-size="20px" line-height="26px" font-weight="regular" padding="10px 45px"/>
+			<mj-divider border-width="1px" border-color="#eeeeee" padding="25px 45px"/>
+
+			<mj-class name="card" background-color="#F7F7F7" padding="0px" border-radius="5px"/>
+			<mj-class name="border-red" border-left="6px solid #E62612" background-color="white" />
+			<mj-class name="button" border-radius="0px" height="50px" font-weight="bold"
+				align="left" inner-padding="0px 30px" padding-left="45px" background-color="#222222"/>
+		</mj-attributes>
+    	<mj-preview>Thank you for registering for the webinar <?php echo $event->post_title; ?></mj-preview>
+
+		<mj-style>
+     		@media (prefers-color-scheme: dark ) {
+				.bg-white-dark-mode {background: #F7F7F7 !important;}
+			}
+    	</mj-style>
+    </mj-head>
+
+	<mj-body width="600px" background-color="#F7F7F7">
+		<mj-section mj-class="border-red" padding-bottom="0px">
+			<mj-column>
+				<mj-text font-size="32px" font-weight="medium" line-height="47px">Thank you for registering for the webinar: <?php echo $event->post_title; ?></mj-text>
+				<?php if (!empty($picture)) {?>
+					<mj-image width="600px" align="left" src="<?php echo $picture; ?>"></mj-image>
+				<?php } ?>
+			</mj-column>
+		</mj-section>
+
+		<mj-section mj-class="border-red" padding-top="0" padding-bottom="12px">
+			<mj-column mj-class="card" width="85%" padding="20px 0px">
+				<mj-table>
+					<tr>
+						<td>
+							<mj-image align="left" width="34px" src="<?php echo get_home_url(); ?>/wp-content/themes/iuslaboris/mails/assets/cloud.png"></mj-image>
+							<mj-text font-size="16px" line-height="16px">ONLINE WEBINAR</mj-text>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<mj-image align="left" width="34px" src="<?php echo get_home_url(); ?>/wp-content/themes/iuslaboris/mails/assets/clock.png"></mj-image>
+							<mj-text font-size="16px" line-height="24px"><?php echo $dateTime; ?></mj-text>
+						</td>
+					</tr>
+				</mj-table>
+			</mj-column>
+		</mj-section>
+
+		<mj-section mj-class="border-red" padding-bottom="0px">
+			<mj-column>
+				<mj-text font-size="20px" line-height="26px"><?php echo get_field("description", $event); ?></mj-text>
+
+				<mj-button padding-top="30px" mj-class="button" href="<?php echo $joinUrl; ?>">Join the webinar</mj-button>
+			</mj-column>
+		</mj-section>
+
+
+		<mj-section mj-class="border-red">
+			<mj-column>
+				<mj-divider padding-top="0" padding-bottom="10px"></mj-divider>
+				<mj-text color="#909090" font-size="14px" line-height="19px">Stay Safe, <br/>The Ius Laboris Team</mj-text>
+			</mj-column>
+		</mj-section>
+
+		<mj-section background-color="#F7F7F7">
+			<mj-column>
+				<mj-text color="#909090"  align="center" font-size="12px" line-height="19px">Ius Laboris 280 Boulevard du Souverain, 1160 Brussels - Belgium</mj-text>
+			</mj-column>
+		</mj-section>
+
+  	</mj-body>
+</mjml>

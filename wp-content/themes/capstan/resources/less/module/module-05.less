@@ -1,0 +1,146 @@
+.module-05 {
+	width:100%;
+	position:relative;
+	padding-top: 90px;
+	padding-bottom: 90px;
+	padding-left:@padding;
+	padding-right:@padding;
+	box-sizing:border-box;
+
+	.title {
+		.f-h2-light();
+		color:@dark;
+		text-align:center;
+		margin-bottom: 20px;
+	}
+
+	.overlay-filter2 {
+		transform-origin: bottom right;
+		transform: scale(0.5);
+		z-index:3
+	}
+
+	.gallery {
+		position:relative;
+		overflow: hidden;
+		padding-top:100%;
+
+		&::before {
+			content:"";
+			height:4px;
+			width:100%;
+			position:absolute;
+			bottom:0px;
+			left:0px;
+			background:rgba(255, 255, 255, 0.3);
+			z-index:1;
+		}
+
+		.item {
+			position:absolute;
+			top:0px;
+			left:-10%;
+			width:120%;
+			height:100%;
+			overflow:hidden;
+
+			img {
+				width:100%;
+			}
+		}
+
+		.line {
+			height:4px;
+			width:100%;
+			position:absolute;
+			bottom:0px;
+			left:0px;
+			background:@red;
+			z-index:2;
+			transform-origin: left bottom;
+			transition: transform 1s @in-out-cubic;
+			transform: scaleX(0);
+		}
+
+	}
+
+	.infos-container {
+		position: relative;
+		height:265px;
+	}
+	.infos {
+		position:absolute;
+		width:100%;
+		top:0px;
+		padding-left: @padding;
+		padding-right: @padding;
+		box-sizing:border-box;
+		
+		.logo {
+			overflow:hidden;
+			margin-top: 30px;
+			margin-bottom:40px;
+			height:38px;
+
+			i {
+				font-size: 28px;
+    			margin-right:15px;
+			}
+
+			span {
+				.tiempo-light();
+				font-size: 24px;
+			}
+		}
+
+		.adresse {
+			overflow:hidden;
+			.f-arianne();
+			font-size:17px;
+			line-height:29px;
+			opacity:0.7;
+			margin-bottom: 30px;
+		}
+
+	}
+
+	@media @desktop {
+		padding-top: 90px;
+		padding-left: 140px;
+    	padding-right: 140px;
+
+		.title {
+			max-width:600px;
+			margin-left:auto;
+			margin-right:auto;
+			margin-bottom: 80px;
+		}
+
+
+		.gallery {
+			padding-top:50%;
+		}
+
+		.infos {
+			display: flex;
+			justify-content: space-between;
+
+			.logo {
+				width: 40%;
+			}
+
+			.adresse {
+				margin-top: 20px;
+				max-width:40%;
+			}
+
+			a {
+				margin-top: 38px;
+				margin-left:10px;
+				position:relative;
+				right: 20px;
+			}
+		}
+
+	}
+}

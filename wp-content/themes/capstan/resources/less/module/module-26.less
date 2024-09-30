@@ -1,0 +1,150 @@
+.module-26 {
+	width:100%;
+	position:relative;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	padding-left:@padding;
+	padding-right:@padding;
+	box-sizing:border-box;
+	background:@dark;
+	user-select: none;
+	
+	.gallery {
+		margin-left:-@padding;
+		margin-right:-@padding;
+		padding-left:@padding;
+		white-space: nowrap;
+		overflow:hidden;
+		padding-bottom: 30px;
+		cursor: grab;
+
+		.item {
+			width:80%;
+			margin-right:@padding;
+			display:inline-block;
+			position:relative;
+			vertical-align: top;
+			.image {
+				position:relative;
+				padding-top:100%;
+				overflow:hidden;
+				width:100%;
+
+				img {
+					position:absolute;
+					top:0px;
+					left:0px;
+					object-fit: cover;
+					width:100%;
+					height:100%;
+					transition: transform 0.5s @out-quad;
+				}
+			}
+
+			.text {
+				white-space: normal;
+
+				.category {
+					.frutiger-roman();
+					font-size:13px;
+					text-transform:uppercase;
+					color:@red;
+					letter-spacing:0.1em;
+					margin-top:30px;
+				}
+
+				.title {
+					margin-top:20px;
+					.tiempo-light();
+					font-size:22px;
+					line-height:34px;
+					color:@white;
+				}
+
+				.description {
+					color:@white;
+					opacity: 0.7;
+					.f-arianne();
+					font-size:16px;
+					margin-top: 20px;
+					line-height:27px;
+					margin-bottom: 60px;
+				}
+
+				a {
+					position:absolute;
+					bottom:0px;
+					.frutiger-roman();
+					color:@white;
+					font-size:11px;
+					text-transform:uppercase;
+					letter-spacing:0.1em;
+					opacity: 0.9;
+			   		transition: opacity 0.2s linear;
+
+					i {
+						font-size: 16px;
+					    top: 2px;
+					    position: relative;
+					    margin-left: 15px;
+					    display:inline-block;
+
+					    transition: transform 0.2s @in-quad;
+					}
+
+					&:hover {
+						opacity: 1;
+						i {
+					   		transition: transform 0.2s @out-quad;
+							transform: translate3d(6px, 0, 0);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@media @desktop {
+		padding-top: 140px;
+		padding-left:@padding_desktop;
+		padding-right:@padding_desktop;
+		padding-bottom: 140px;
+
+		::-webkit-scrollbar-button:start:decrement,
+		::-webkit-scrollbar-button:end:increment {
+		    display: block;
+		    width:@padding_desktop;
+		}
+
+		.gallery {
+			margin-left:-@padding_desktop;
+			margin-right:-@padding_desktop;
+			padding-left:@padding_desktop;
+			padding-right:(@padding_desktop) - 30;
+			padding-bottom: 60px;
+
+			.item {
+				max-width: 970px;
+    			width: 80%;
+				margin-right:30px;
+
+				.image {
+					padding-top:57.4%;
+				}
+
+				.text {
+					max-width:415px;
+
+					.description {
+						margin-bottom: 30px;
+						margin-top:20px;
+						.frutiger-roman();
+						font-size:15px;
+						line-height:24px;
+						color:@white;
+					}
+				}
+			}
+		}
+	}
+}

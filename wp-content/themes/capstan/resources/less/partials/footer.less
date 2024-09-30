@@ -1,0 +1,162 @@
+footer {
+	padding-left:@padding;
+	padding-right:@padding;
+	padding-top: 80px;
+	overflow: hidden;
+    @media print {display: none;}
+
+	.logo {
+		i {
+			font-size:47px;
+		}
+	}
+
+	.catch {
+		.f-h2-medium();
+		font-size:36px;
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+
+	.sub {
+		padding-top: 30px;
+
+		.title {
+			.f-h6();
+		}
+
+		ul {
+			display:flex;
+			padding:0;
+			margin:0;
+			flex-wrap:wrap;
+			padding-top:20px;
+
+			li {
+				.f-arianne();
+				list-style-type:none;
+				width:50%;
+				font-size:16px;
+				opacity:0.7;
+				line-height: 32px;
+
+				a {
+					color:@dark;
+				}
+			}
+		}
+	}
+
+	.annexes {
+		.f-arianne();
+		font-size:14px;
+		opacity:0.7;
+		line-height: 32px;
+		padding:0;
+		margin:0;
+		padding-top: 30px;
+
+		li {
+			list-style-type:none;
+		}
+
+		a {
+			color:@dark;
+		}
+	}
+
+	.socials {
+		.f-arianne();
+		font-size:18px;
+		margin:0px;
+		padding:0px;
+		display:flex;
+		width:100%;
+		background:@red;
+		margin-left:-@padding;
+		margin-right:-@padding;
+		max-width:350px;
+		height:92px;
+		line-height:92px;
+		justify-content: center;
+		margin-top: 50px;
+
+		li {
+			list-style-type:none;
+		    width: 20%;
+			text-align: center;
+			&.lang {
+				background-color: @dark;
+			}
+		}
+
+		a {
+			color:@white;
+		}
+	}
+
+	@media @desktop {
+		padding-top: 130px;
+		padding-left:80px;
+		padding-right:80px;
+		position:relative;
+
+		.group {
+			display:inline-block;
+			width:40%;
+			vertical-align: top;
+			margin-right:10%;
+		}
+
+		.sub {
+			display:inline-block;
+			width:35%;
+			vertical-align: top;
+			padding-top: 20px;
+
+			ul {
+
+				li {
+					font-size:15px;
+					line-height: 25px;
+				}
+			}
+		}
+
+		.sub2 {
+			width:15%;
+
+			ul {
+
+				li {
+					width:100%;
+				}
+			}
+
+		}
+
+		.annexes {
+			font-size:12px;
+			padding-top: 100px;
+			padding-bottom: 20px;
+
+			li {
+				display:inline-block;
+				padding-right:30px;
+			}
+		}
+
+		.socials {
+			position: absolute;
+			bottom:0px;
+			right:0px;
+			height:72px;
+			line-height:72px;
+			width:290px;
+			font-size:12px;
+
+			margin-left:0;
+			margin-right:0;
+		}
+	}
+}

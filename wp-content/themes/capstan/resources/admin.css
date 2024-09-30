@@ -1,0 +1,23 @@
+.wp-block[aria-label]:before {
+    content: attr(data-title);
+    position: absolute;
+    top: -26px;
+    color: #9b9a9a;
+    font-size: 13px;
+    z-index: 100;
+    top: 50%;
+    transform: rotate(-90deg);
+    right: 100%;
+    margin-right: 20px;
+    left: auto;
+    white-space: nowrap;
+    transform-origin: 100% 50%;
+}
+
+.wp-block[aria-label] {
+    min-height: 50px;
+    border: 1px solid red;
+    border: #adb2ad solid 1px;
+}
+
+.wp-block[aria-label] .acf-block-body .acf-block-fields {border: none;}

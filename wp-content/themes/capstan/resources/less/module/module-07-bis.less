@@ -1,0 +1,158 @@
+.module-07-bis {
+	width:100%;
+	position:relative;
+	padding-top: 40px;
+	padding-left:@padding;
+	padding-right:@padding;
+	box-sizing:border-box;
+	padding-bottom: 70px;
+
+	::-webkit-scrollbar {
+		width:0px;
+	    height: 2px;
+	}
+
+	/* Turn on single button up on top, and down on bottom */
+	::-webkit-scrollbar-button:start:decrement,
+	::-webkit-scrollbar-button:end:increment {
+	    display: block;
+	    width:@padding;
+	}
+
+	/* Track below and above */
+	::-webkit-scrollbar-track-piece {
+	    background-color:rgba(34, 34, 34, 0.1);
+	}
+
+	/* The thumb itself */
+	::-webkit-scrollbar-thumb:horizontal {
+	    background-color:@red;
+	}
+
+	.title {
+		.f-h2-light();
+		color:@dark;
+		text-align:center;
+		margin-bottom: 40px;
+	}
+
+	.description {
+		opacity: 0.5;
+		.f-arianne();
+		font-size:16px;
+		line-height:27px;
+		text-align:center;
+		margin-bottom: 40px;
+	}
+
+	.columns {
+		padding-bottom: 30px;
+		white-space: nowrap;
+		overflow:auto;
+		margin-left:-@padding;
+		margin-right:-@padding;
+		padding-left:@padding;
+
+		.line {
+			width:80%;
+			margin-right:@padding;
+			display:inline-block;
+			position:relative;
+
+			.image-container {
+				position:relative;
+				padding-top:140%;
+			}
+
+			img {
+				width:100%;
+				position:absolute;
+				top:0px;
+				left:0px;
+				height:100%;
+				object-fit: cover;
+			}
+
+			.infos {
+				display:flex;
+				padding-top: 20px;
+    			padding-bottom: 50px;
+
+				.number {
+					.frutiger-roman();
+					color:@red;
+					font-size:16px;
+					line-height: 34px;
+					display:block;
+				}
+
+				.subtitle {
+					display:block;
+					white-space: normal;
+					.tiempo-light();
+					font-size:20px;
+					line-height:30px;
+					padding-left: 30px;
+					width: 100%;
+				}
+
+			}
+
+		}
+	}
+
+	@media @desktop {
+
+	    padding-left: @padding_desktop;
+		padding-right: @padding_desktop;
+
+		.columns {
+			display:flex;
+			overflow:visible;
+			padding-left:0px;
+			
+			.line {
+				margin-right:0px;
+
+				&:nth-child(1) {
+					top: 50px;
+    				position: relative;
+				}
+
+				&:nth-child(2) {
+					margin-left: 50px;
+    				margin-right: 50px;
+				}
+
+				&:nth-child(3) {
+					top: 50px;
+    				position: relative;
+				}
+
+				.infos {
+					padding-top: 30px;
+					display:block;
+
+					.subtitle {
+						padding-left:0px;
+						margin-top: 20px;
+					}
+				}
+
+			}
+		}
+
+		.title {
+			font-size:80px;
+			line-height:90px;
+		}
+
+		.description {
+			max-width:420px;
+			margin-left:auto;
+			margin-right:auto;
+		}
+
+	}
+
+}

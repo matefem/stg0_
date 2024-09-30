@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="72px" height="47px" viewBox="0 0 72 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 15</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.901961 0 0 0 0 0.149020 0 0 0 0 0.070588 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <polygon id="path-2" points="0 0.0290197419 16.9944046 0.0290197419 16.9944046 17.7994143 0 17.7994143"></polygon>
+        <polygon id="path-4" points="0 0.00659202862 16.9947648 0.00659202862 16.9947648 18 0 18"></polygon>
+        <polygon id="path-6" points="0.00500706785 0.00659202862 16.9694154 0.00659202862 16.9694154 18 0.00500706785 18"></polygon>
+        <polygon id="path-8" points="0.0391470096 0.00668737864 16.9971794 0.00668737864 16.9971794 18 0.0391470096 18"></polygon>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-/-Footer" transform="translate(-80.000000, -138.000000)">
+            <g id="Group-15" transform="translate(80.000000, 138.000000)" filter="url(#filter-1)">
+                <g>
+                    <g id="Group-3">
+                        <mask id="mask-3" fill="white">
+                            <use xlink:href="#path-2"></use>
+                        </mask>
+                        <g id="Clip-2"></g>
+                        <path d="M16.9944046,17.7994143 L16.9944046,0.0290197419 L-0.000360211208,0.0290197419 C8.22326166,2.43500555 14.6989586,9.19813277 16.9944046,17.7994143" id="Fill-1" fill="#E42713" mask="url(#mask-3)"></path>
+                    </g>
+                    <g id="Group-6" transform="translate(0.000000, 28.000000)">
+                        <mask id="mask-5" fill="white">
+                            <use xlink:href="#path-4"></use>
+                        </mask>
+                        <g id="Clip-5"></g>
+                        <path d="M0,0.00659202862 L0,18.0000954 L16.9947648,18.0000954 C8.77204343,15.5639022 2.2981475,8.71490986 0,0.00659202862" id="Fill-4" fill="#E42713" mask="url(#mask-5)"></path>
+                    </g>
+                    <g id="Group-9" transform="translate(28.000000, 28.000000)">
+                        <mask id="mask-7" fill="white">
+                            <use xlink:href="#path-6"></use>
+                        </mask>
+                        <g id="Clip-8"></g>
+                        <path d="M0.00500706785,0.00659202862 L0.00500706785,18.0000954 L16.9694154,18.0000954 C8.75914878,15.5639022 2.29917113,8.71490986 0.00500706785,0.00659202862" id="Fill-7" fill="#E42713" mask="url(#mask-7)"></path>
+                    </g>
+                    <g id="Group-12" transform="translate(55.000000, 28.000000)">
+                        <mask id="mask-9" fill="white">
+                            <use xlink:href="#path-8"></use>
+                        </mask>
+                        <g id="Clip-11"></g>
+                        <path d="M0.0391470096,18.0001907 L16.997538,18.0001907 L16.997538,0.00668737864 C14.7025927,8.71214471 8.24626598,15.568765 0.0391470096,18.0001907" id="Fill-10" fill="#E42713" mask="url(#mask-9)"></path>
+                    </g>
+                    <path d="M45,18 L45,0 L28,0 C36.2247894,2.43707276 42.7037253,9.28758412 45,18" id="Fill-13" fill="#E42713"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

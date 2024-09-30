@@ -1,0 +1,168 @@
+.navigation {
+	display:none;
+
+	@media @desktop {
+		opacity: 0; 
+		position:fixed;
+		display:block;
+		right:@padding_desktop;
+		bottom:80px;
+		top:120px;
+		display:flex;
+		flex-direction: column;
+		z-index:4;
+
+		.arrows {
+			overflow:hidden;
+			.menu {
+				height:50px;
+				width:50px;
+				border-radius:100%;
+				text-align:center;
+				line-height:50px;
+				font-size:6px;
+				color:@white;
+				cursor:pointer;
+				background: @red;
+				transition: background 0.3s linear;
+
+
+				&>div {
+					display:inline-block;
+					vertical-align: middle;
+					&>span {
+						width: 16px;
+						height:1px;
+						background: @white;
+						display:block;
+						transition: background 0.3s linear;
+						&:nth-child(2) {
+							margin: 5px 0px;
+						}
+					}
+				}
+
+				&:hover {
+					background:@white;
+					&>div {
+						&>span {
+							background: @red;
+						}
+					}
+				}
+			}
+
+			.contact-us {
+				position:absolute;
+				bottom:0px;
+				right:100px;
+				a {
+					display:inline-block;	
+					background:@white;
+					.frutiger-roman();
+					border-radius: 25px;
+					height:50px;
+					line-height:50px;
+					font-size:13px;
+					color:@dark;
+					text-align: center;
+					width:200px;
+
+					transition: background 0.4s, color 0.4s;
+
+					i {
+						font-size: 20px;
+					    top: 5px;
+					    position: relative;
+					    margin-right: 10px;
+
+						transition: background 0.4s, color 0.4s;
+						&:before {
+							color: @red;
+						}
+					}
+
+					&:hover {
+						background:@dark;
+						color:@white;
+
+						i {
+							&:before {
+								color: @white;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.dots {
+			flex:1;
+
+			display:flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+
+
+
+			.dot {
+				padding:12px;
+				cursor:pointer;
+				
+				&:hover, &.active {
+					span {
+						background:@red;
+					}
+				}
+				span {
+					display: inline-block;
+					width:3px;
+					height:3px;
+					background:@white;
+					transition: background 0.5s linear;
+				}
+			}
+
+			.info {
+				font-size:14px;
+				letter-spacing: 0.014em;
+				color: @white;
+				.frutiger-roman();
+				transform:rotate(-90deg);
+				margin-bottom:25px;
+				transition: color 0.5s;
+			}
+		}
+
+		&.red {
+			.dots {
+				.dot {
+					&:hover, &.active {
+						span {
+							background:@dark;
+						}
+					}
+				}
+			}
+		}
+
+		&.dark {
+			.dots {
+				.dot {
+					&:hover, &.active {
+						span {
+							background:@red;
+						}
+					}
+					span {
+						background:@dark;
+					}
+				}
+				.info {
+					color: @dark;
+				}
+			}
+		}
+	}
+}

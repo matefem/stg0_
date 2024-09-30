@@ -1,0 +1,172 @@
+.filters {
+	margin-bottom: 80px;
+
+	.subtitle {
+		font-size:13px;
+		color:@dark;
+		.frutiger-roman();
+		text-transform:uppercase;
+		letter-spacing:0.1em;
+		padding-top:0px;
+		padding-bottom: 10px;
+	}
+
+	form {
+		.search {
+			border:1px solid rgba(34, 34, 34, 0.1);
+			position:relative;
+
+			input {
+				height:80px;
+				line-height:80px;
+				font-size:14px;
+				.frutiger-roman();
+				width:100%;
+				border:0px;
+				box-sizing:border-box;
+				padding:0px 40px;
+				outline: none;
+			}
+
+			i {
+				position:absolute;
+				top: 30px;
+				right: 25px;
+				font-size:20px;
+				color:@dark;
+			}
+
+		}
+
+		.list {
+			border:1px solid rgba(34, 34, 34, 0.1);
+			border-top:0px;
+			position:relative;
+			height:80px;
+			line-height:80px;
+			font-size:14px;
+			.frutiger-roman();
+			width:100%;
+			box-sizing:border-box;
+			padding:0px 40px;
+			white-space: nowrap;
+
+			select {
+				position:absolute;
+				top:0px;
+				left:0px;
+				height:100%;
+				width:100%;
+				opacity:0;
+			}
+
+			ul {
+				display:none;
+			}
+
+			> i {
+				color:@dark;
+				font-size: 8px;
+			    position: absolute;
+			    top: 36px;
+			    right: 28px;
+			}
+		}
+	}
+
+	@media @desktop {
+		text-align: left;
+		width:31%;
+		position:relative;
+		padding-top: 20px;
+		max-width: 340px;
+		margin-right: 4%;
+
+		.subtitle {
+			position:absolute;
+			bottom:100%;
+			left:0px;
+		}
+
+		form {
+			.search {
+
+				input {
+
+				}
+
+				i {
+
+				}
+
+			}
+
+			.list {
+
+				select {
+					display:none;
+				}
+
+			    > i {
+			    	transition: transform @in-out-quad 0.4s;
+			    	transform-origin: center;
+			    }
+
+				ul {
+					display:block;
+				    padding-top: 78px;
+				    max-height: 400px;
+				    overflow: hidden;
+				    position: absolute;
+				    top: 0px;
+				    left: 0px;
+				    width: 100%;
+				    z-index:1;
+				    box-sizing: border-box;
+			    	border: 1px solid #0000;
+				    cursor:pointer;
+
+				    will-change: height;
+				    transition: height 0.4s @in-out-quad, border 0.4s linear;
+
+				    li {
+				    	white-space: nowrap;
+				    	height:62px;
+				    	line-height:62px;
+				    	.frutiger-roman();
+						width:100%;
+						box-sizing:border-box;
+						padding:0px 40px;
+						background:@white;
+						border-bottom: 1px solid rgba(34, 34, 34, 0.1);
+						cursor: pointer;
+
+						transition: background 0.3s linear, color 0.3s linear;
+
+						&:first-child {
+						    border-top: 1px solid rgba(34, 34, 34, 0.1);
+						}
+
+						&:hover {
+							background:@red;
+							color:@white;
+						}
+				    }
+				}
+
+				&.active {
+					z-index: 2;
+					ul {
+				    	border: 1px solid #000;
+				    	overflow: auto;
+				    }
+
+					> i {
+						transform:rotate(180deg);
+					}
+				}
+			}
+		}
+	}
+
+}

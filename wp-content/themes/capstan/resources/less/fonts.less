@@ -1,0 +1,176 @@
+@font-face {
+    font-family: 'Tiempos Headline';
+    src: url('./resources/assets/fonts/TiemposHeadline-Regular.woff2') format('woff2'),
+        url('./resources/assets/fonts/TiemposHeadline-Regular.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tiempos Headline';
+    src: url('./resources/assets/fonts/TiemposHeadline-Medium.woff2') format('woff2'),
+        url('./resources/assets/fonts/TiemposHeadline-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Tiempos Headline';
+    src: url('./resources/assets/fonts/TiemposHeadline-Light.woff2') format('woff2'),
+        url('./resources/assets/fonts/TiemposHeadline-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tiempos Text';
+    src: url('./resources/assets/fonts/TiemposText-Regular.woff2') format('woff2'),
+        url('./resources/assets/fonts/TiemposText-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Frutiger LT Std';
+    src: url('./resources/assets/fonts/FrutigerLTStd-Italic.woff2') format('woff2'),
+        url('./resources/assets/fonts/FrutigerLTStd-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Frutiger LT Std';
+    src: url('./resources/assets/fonts/FrutigerLTStd-Roman.woff2') format('woff2'),
+        url('./resources/assets/fonts/FrutigerLTStd-Roman.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Frutiger LT Std';
+    src: url('./resources/assets/fonts/FrutigerLTStd-Light.woff2') format('woff2'),
+        url('./resources/assets/fonts/FrutigerLTStd-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Frutiger LT Std';
+    src: url('./resources/assets/fonts/FrutigerLTStd-Bold.woff2') format('woff2'),
+        url('./resources/assets/fonts/FrutigerLTStd-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+.tiempo-light() {
+    font-family: 'Tiempos Headline';
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+.tiempo-medium() {
+    font-family: 'Tiempos Headline';
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+.frutiger-roman() {
+    font-family: 'Frutiger LT Std';
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.frutiger-light() {
+    font-family: 'Frutiger LT Std';
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+.frutiger-bold() {
+    font-family: 'Frutiger LT Std';
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
+.f-arianne() {
+	font-size:12px;
+	.frutiger-roman();
+}
+
+.f-h1() {
+	font-size:80px;
+	.tiempo-light();
+}
+
+.f-h2-light() {
+	.tiempo-light();
+	font-size:36px;
+	line-height: 44px;
+
+	@media @desktop {
+		font-size:60px;
+		line-height:65px;
+	}
+}
+
+.f-h2-medium() {
+	font-size:46px;
+	.tiempo-light();
+}
+
+.f-h3() {
+	font-size:40px;
+	.tiempo-light();
+}
+
+.f-h4() {
+	font-size:32px;
+	.tiempo-light();
+}
+
+.f-h5() {
+	font-size:24px;
+	.tiempo-light();
+}
+
+.f-h6() {
+	font-size:17px;
+	.tiempo-light();
+}
+
+.f-paragraph() {
+	font-size:17px;
+	.frutiger-roman();
+}
+
+.f-paragraph-dark() {
+	font-size:16px;
+	.frutiger-roman();
+}
+
+.f-paragraph-dark-small() {
+	font-size:14px;
+    color: @dark;
+	.frutiger-roman();
+}
+
+.f-small() {
+	font-size:11px;
+	letter-spacing: 0.05em;
+	.frutiger-roman();
+}

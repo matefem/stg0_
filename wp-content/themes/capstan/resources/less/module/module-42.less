@@ -1,0 +1,148 @@
+.module-42 {
+	width:100%;
+	position:relative;
+	padding-top: 90px;
+	padding-bottom: 90px;
+	padding-left:@padding;
+	padding-right:@padding;
+	box-sizing:border-box;
+	background:@dark;
+	user-select:none;
+	overflow:hidden;
+
+	.infos {
+		.title {
+			.f-h2-light();
+			color:@white;
+			text-align:left;
+		}
+
+		.description {
+			color:@white;
+			opacity: 0.7;
+			.f-arianne();
+			font-size:16px;
+			line-height:27px;
+			margin-top: 40px;
+			text-align:left;
+		}
+	}
+
+	.arrows {
+		text-align:right;
+		margin-top:35px;
+		i {
+			display:inline-block;
+			font-size:16px;
+			height: 90px;
+			width: 90px;
+			line-height: 90px;
+			vertical-align: middle;
+			text-align:center;
+			border-radius:45px;
+			border:1px solid rgba(255, 255, 255, 0.3);
+			margin-left: 30px;
+			cursor:pointer;
+
+			transition: transform 0.3s @out-quad, border 0.4s linear;
+			&:before {
+				transition: transform 0.3s @out-quad;
+			}
+
+			&:hover {
+				transform: scale(1.1);
+				transition: transform 0.3s @out-quad, border 0.4s linear;
+				border:1px solid rgba(255, 255, 255, 0.8);
+
+				&:before {
+					transform: scale(0.5);
+					transition: transform 0.3s @out-quad;
+				}
+			}
+		}
+
+		.left {
+			transform: rotate(180deg);
+
+			&:hover {
+				transform: rotate(180deg) scale(1.1);
+			}
+		}
+	}
+
+	.gallery {
+		margin-top: 60px;
+		margin-left:-@padding;
+		margin-right:-@padding;
+		padding-left:@padding;
+		white-space: nowrap;
+		padding-bottom: 30px;
+		cursor: grab;
+		transition: transform 0.5s @out-quad;
+
+		.item {
+			width:80%;
+			margin-right:@padding;
+			display:inline-block;
+			position:relative;
+			max-width:282px;
+			vertical-align: top;
+			
+			.img-container {
+				transition: transform 1s @in-out-quad;
+			}
+
+			img {
+				width:100%;
+				transform:scale(1.5);
+				transition: transform 0.8s @out-quad;
+			}
+		
+		}
+
+	}
+
+	@media @desktop {
+		padding-top: 140px;
+		padding-left:@padding_desktop;
+		padding-right:@padding_desktop;
+		padding-bottom: 120px;
+
+		.infos {
+			.title {
+				text-align:left;
+				width: 50%;
+				vertical-align: top;
+			}
+
+			.description {
+				text-align:left;
+				display:inline-block;
+			    width: 40%;
+			    padding-top:35px;
+				margin-left: 30%;
+				margin-top: 0px;
+			}
+			.arrows {
+				display:inline-block;
+				vertical-align: bottom;
+				float:right;
+			}
+		}
+
+		.gallery {
+			margin-top:50px;
+			margin-left:-@padding_desktop;
+			margin-right:-@padding_desktop;
+			padding-left:@padding_desktop;
+			padding-right:(@padding_desktop) - 30;
+
+			.item {
+				max-width: 400px;
+				width:40%;
+				margin-right:30px;
+			}
+		}
+
+	}
+}

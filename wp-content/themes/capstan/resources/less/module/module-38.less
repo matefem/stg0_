@@ -1,0 +1,186 @@
+.module-38 {
+	width:100%;
+	position:relative;
+	padding-top: 90px;
+	padding-left:@padding;
+	padding-right:@padding;
+	box-sizing:border-box;
+	padding-bottom: 90px;
+	background:@dark;
+
+	.title {
+		.f-h2-light();
+		color:@white;
+		margin-bottom: 40px;
+		text-align:center;
+	}
+
+	.content {
+
+		.text {
+			text-align:center;
+
+			.title {
+				display:none;
+			}
+
+			.name {
+				font-size:26px;
+				line-height:49px;
+				.tiempo-light();
+				color:@white;
+				margin-top: 40px;
+			}
+
+			.job {
+				font-size:15px;
+				line-height:20px;
+				.frutiger-roman();
+				text-transform:uppercase;
+				color:@white;
+				margin-top: 10px;
+			}
+
+			.description {
+				color:@white;
+				opacity: 0.7;
+				.f-arianne();
+				font-size:16px;
+				line-height:27px;
+				margin-bottom: 40px;
+				margin-top: 30px;
+			}
+
+			.icons {
+				text-align: center;
+				margin-left:-@padding;
+				margin-right:-@padding;
+
+				a {
+					display:inline-block;
+					border:1px solid rgba(255, 255, 255, 0.1);
+					height:70px;
+					width:70px;
+					line-height:70px;
+					border-radius:100%;
+					text-align: center;
+					margin-left:15px;
+					margin-right:15px;
+
+					i {
+						font-size:15px;
+						color:@white;
+
+						&.icon-phone {
+							font-size:20px;
+							top: 9px;
+		    				position: relative;
+						}
+
+						&.icon-mail {
+							font-size:14px;
+							top: 7px;
+		    				position: relative;
+						}
+
+						&.icon-in {
+							font-size:20px;
+							top: 8px;
+		    				position: relative;
+						}
+					}
+				}
+			}
+
+		}
+
+	}
+
+	img {
+		width:100%;
+	}
+
+	@media @desktop {
+		padding-left:@padding_desktop;
+		padding-right:@padding_desktop;
+		padding-top: 100px;
+		padding-bottom: 100px;
+
+		.introduction {
+			.title {
+				display:none;
+			}
+		}
+		
+		.content {
+			display:flex;
+			align-items:center;
+			max-width: 1130px;
+			margin-left:auto;
+			margin-right:auto;
+
+			.image {
+				order:2;
+				width:50%;
+			}
+
+			.text {
+				text-align:left;
+				order:1;
+				width:50%;
+
+				.name {
+					font-size:32px;
+					line-height:75px;
+				}
+
+				.job {
+					font-size:12px;
+					line-height:20px;
+				}
+
+				.title {
+					display:block;
+					text-align:left;
+				}
+
+				.description {
+					max-width:420px;
+					font-size:17px;
+					line-height:29px;
+					margin-top: 60px;
+					margin-bottom: 60px;
+				}
+
+				.icons {
+					text-align:left;
+
+					a {
+						height:50px;
+						width:50px;
+						line-height:50px;
+					}
+				}
+			}
+		}
+
+	}
+
+	@media @large {
+
+		.content {
+
+			.text {
+
+				.title {
+					display:block;
+					text-align:left;
+					font-size:65px;
+					line-height:70px;
+				}
+
+			}
+		}
+
+	}
+}

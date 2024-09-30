@@ -1,0 +1,46 @@
+.module-15 {
+	width:100%;
+	position:relative;
+	padding-top: 70px;
+	padding-left:@padding;
+	padding-right:@padding;
+	box-sizing:border-box;
+	padding-bottom: 70px;
+
+	.title {
+		.f-h2-light();
+		color:@dark;
+		margin-bottom: 40px;
+	}
+
+	.description {
+		opacity: 0.7;
+		.f-arianne();
+		font-size:16px;
+		line-height:27px;
+	}
+
+	@media @desktop {
+		padding-left:180px;
+		padding-right:180px;
+		padding-top: 140px;
+		padding-bottom: 140px;
+
+		.title {
+			max-width:900px;
+			text-align:center;
+			margin-left:auto;
+			margin-right:auto;
+			margin-bottom: 60px;
+		}
+
+		.description {
+			max-width:960px;
+			column-count: 2;
+			margin-left:auto;
+			margin-right:auto;
+			column-gap: 70px;
+		}
+	}
+
+}

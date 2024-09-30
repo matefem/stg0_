@@ -1,0 +1,61 @@
+.module-36 {
+	width:100%;
+	position:relative;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	box-sizing:border-box;
+
+	.columns {
+
+		.line {
+			&:nth-child(1) {
+				width:55%;
+				margin-left:@padding;
+			}
+
+			&:nth-child(2) {
+				margin-top: 40px;
+				width: 70%;
+			    margin-left: auto;
+			    margin-right: @padding;
+			}
+
+			img {
+				width:100%;
+			}
+		}
+
+	}
+
+	@media @desktop {
+		padding-top: 70px;
+		padding-bottom: 90px;
+		padding-left: @padding_desktop;
+		padding-right: @padding_desktop;
+
+		.columns {
+			max-width:980px;
+		    padding-left: 105px;
+			padding-right: 105px;
+			margin-left:auto;
+			margin-right:auto;
+			display:flex;
+
+			.line {
+				&:nth-child(1) {
+					margin-left:0px;
+					margin-right:40px;
+					margin-top:60px;
+				}
+
+				&:nth-child(2) {
+					margin-right:0px;
+					margin-top:0px;
+				}
+			}
+
+		}
+
+	}
+	    
+}

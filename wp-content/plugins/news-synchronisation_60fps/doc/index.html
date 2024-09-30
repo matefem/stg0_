@@ -1,0 +1,1311 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/all.js"></script>
+
+
+          <script>
+        $(function() {
+            setupLanguages(["bash","php"]);
+        });
+      </script>
+      </head>
+
+  <body class="">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+        <img src="images/logo.png" />
+                    <div class="lang-selector">
+                                  <a href="#" data-language-name="bash">bash</a>
+                                  <a href="#" data-language-name="php">php</a>
+                            </div>
+                            <div class="search">
+              <input type="text" class="search" id="input-search" placeholder="Search">
+            </div>
+            <ul class="search-results"></ul>
+              <div id="toc">
+      </div>
+                    <ul class="toc-footer">
+                                  <li><a href='https://www.weblogin.fr'>Documentation par WebLogin</a></li>
+                            </ul>
+            </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+          <!-- START_INFO -->
+<h1>Info</h1>
+<p>Documentation de l'API de news.capstan.fr.</p>
+<h2>Code HTTP</h2>
+<p>Les codes HTTP utilisés sont les plus communs.</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Signification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Élément créé</td>
+</tr>
+<tr>
+<td>401</td>
+<td>L'utilisateur n'est pas connecté</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Page introuvable</td>
+</tr>
+<tr>
+<td>422</td>
+<td>Erreur de validation (voir messages)</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Erreur serveur</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Serveur en maintenance</td>
+</tr>
+</tbody>
+</table>
+<h2>Messages d'erreurs</h2>
+<pre><code>{
+    "messages": [
+        "Vous devez être connecté"
+    ]
+}</code></pre>
+<p>Les messages d'erreurs peuvent être récupérés via l'attribut <code>messages</code> qui est un tableau. Les messages d'erreurs sont en français et peuvent être directement affichés à l'utilisateur dans le cadre de messages de validation (code 422) par exemple.</p>
+<!-- END_INFO -->
+<h1>Articles</h1>
+<!-- START_724ba80acc67319e7f7a0bf47da0692a -->
+<h2>Lister les articles</h2>
+<p>Cette URL permet de lister les articles paginés, trier par date de publication.</p>
+<p>Concernant le paramètre <code>favorites</code>, il n'est pas nécessaire de lui donner une valeur. Seule sa présence ou non
+est prise en compte. Si aucun utilisateur n'est connecté avec ce paramètre, l'API répondra avec un message
+d'erreur.</p>
+<p>L'attribut <code>content</code> contient le contenu HTML de l'article. L'HTML peut contenir des balises <code>p</code>, <code>h2</code>, <code>a</code>,
+<code>strong</code>, <code>em</code>, <code>s</code>, <code>u</code>, <code>ol</code>, <code>ul</code>, <code>li</code>. Il peut également contenir des <code>div.style-quote</code> qui représentent un
+bloc de citation ainsi que des <code>div.style-framed</code> qui représente un bloc gris de mise en valeur.</p>
+<p>Le <code>format</code> d'un article est sa mise en valeur, voir tableau de correspondance suivant :</p>
+<table>
+<thead>
+<tr>
+<th>Clé</th>
+<th>Nom</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>default</td>
+<td>Classique</td>
+</tr>
+<tr>
+<td>featured</td>
+<td>En vedette</td>
+</tr>
+<tr>
+<td>framed</td>
+<td>Encadré</td>
+</tr>
+<tr>
+<td>video</td>
+<td>Vidéo</td>
+</tr>
+</tbody>
+</table>
+<p>Pour le paramètre <code>author_capstan_id</code>, il fait référence à l'identifiant unique d'un auteur sur le site
+capstan.fr que les administrateurs devront renseigner manuellement dans l'administration du site Capstan News.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://news.capstan.fr/api-capstan/articles" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Capstan-Authorization: 123456"</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://news.capstan.fr/api-capstan/articles',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Capstan-Authorization' =&gt; '123456',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": [
+        {
+            "id": 963159659,
+            "title": "Debitis quia vel totam odit. Qui ut impedit expedita molestias aut",
+            "type": {
+                "key": "briefs",
+                "name": "Brèves"
+            },
+            "format": "featured",
+            "content": "&lt;p&gt;Corrupti omnis occaecati tempore et perspiciatis odio. Soluta odit et temporibus non tenetur a nihil blanditiis. Est et voluptate nobis voluptas qui.&lt;\/p&gt;",
+            "image": {
+                "small": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/963159659\/46-small.jpg",
+                "medium": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/963159659\/46-medium.jpg",
+                "large": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/963159659\/46-large.jpg"
+            },
+            "published_at": 1628590860,
+            "themes": [
+                {
+                    "id": 283234750,
+                    "name": "Nisi ipsum"
+                },
+                {
+                    "id": 1039103614,
+                    "name": "Ullam dignissimos"
+                }
+            ]
+        },
+        {
+            "id": 380212167,
+            "title": "Eum nobis qui at veniam sequi",
+            "type": {
+                "key": "briefs",
+                "name": "Brèves"
+            },
+            "format": "default",
+            "content": "&lt;p&gt;Fugit earum exercitationem aliquid sit odit labore tenetur. Ut ut ut commodi est quia. Ullam odit ea ab aperiam eos nam optio. Soluta ex dolorum quas. Velit nemo similique ipsum debitis voluptatem temporibus reprehenderit.&lt;\/p&gt;",
+            "image": {
+                "small": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/380212167\/74-small.jpg",
+                "medium": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/380212167\/74-medium.jpg",
+                "large": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/380212167\/74-large.jpg"
+            },
+            "published_at": 1628360040,
+            "themes": [
+                {
+                    "id": 583492411,
+                    "name": "Optio voluptatibus"
+                },
+                {
+                    "id": 857655284,
+                    "name": "Ullam beatae"
+                },
+                {
+                    "id": 1611438330,
+                    "name": "Officia quibusdam"
+                }
+            ],
+            "events": [
+                {
+                    "id": 1046015716,
+                    "name": "Sapiente repudiandae nostrum",
+                    "start_at": 1621029600,
+                    "end_at": 1621029600,
+                    "is_all_day": true
+                },
+                {
+                    "id": 2115980570,
+                    "name": "Dolor aut mollitia animi repellat",
+                    "start_at": 1639609200,
+                    "end_at": 1639609200,
+                    "is_all_day": true
+                }
+            ],
+            "files": [
+                {
+                    "id": 63,
+                    "full_name": "Landscape-3.jpg",
+                    "size": "1.11 Mo",
+                    "url": "http:\/\/local.news.capstan.fr\/files\/fileable\/articles\/380212167\/63-landscape-3.jpg"
+                },
+                {
+                    "id": 64,
+                    "full_name": "Landscape-1.jpg",
+                    "size": "328.82 Ko",
+                    "url": "http:\/\/local.news.capstan.fr\/files\/fileable\/articles\/380212167\/64-landscape-1.jpg"
+                }
+            ],
+            "authors": [
+                {
+                    "id": 1689642829,
+                    "full_name": "Aurore Bazin",
+                    "about": "Est natus voluptatem quas magni et aliquam omnis."
+                },
+                {
+                    "id": 787689030,
+                    "capstan_id": "1f25595e3d96af879d712426a01234017ff38fde",
+                    "full_name": "Stéphanie-Manon Traore",
+                    "about": "Odio aut nesciunt dolor aut enim."
+                }
+            ]
+        },
+        {
+            "id": 1744027889,
+            "title": "Alias officiis in labore at possimus",
+            "type": {
+                "key": "briefs",
+                "name": "Brèves"
+            },
+            "format": "video",
+            "content": "&lt;p&gt;Debitis ut odit eos qui eos voluptatem. Qui aut nihil id saepe. Tenetur ipsam minus autem dicta qui a. Ut similique et quis optio suscipit sunt molestiae. Beatae quo at sit ea nihil aut voluptate.&lt;\/p&gt;&lt;p&gt;Maxime nam non est earum blanditiis fugit repellendus. Vero ullam quas ducimus et et qui. Et in aliquid vel ut fugit dolores corrupti.&lt;\/p&gt;&lt;p&gt;Qui distinctio fuga nostrum sint totam. Magni quis qui amet debitis. Sequi dolores saepe cupiditate dolorem dolores eos. Cupiditate et culpa aut mollitia voluptatibus. Explicabo ea quibusdam quibusdam quasi quasi officia. Reprehenderit et qui consequatur ratione aut sed. At saepe ipsum enim eveniet vero.&lt;\/p&gt;",
+            "image": {
+                "small": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/1744027889\/178-small.jpg",
+                "medium": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/1744027889\/178-medium.jpg",
+                "large": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/1744027889\/178-large.jpg"
+            },
+            "published_at": 1628340480,
+            "themes": [
+                {
+                    "id": 857655284,
+                    "name": "Ullam beatae"
+                },
+                {
+                    "id": 1586381803,
+                    "name": "Commodi dicta"
+                }
+            ],
+            "files": [
+                {
+                    "id": 165,
+                    "full_name": "Beach.jpg",
+                    "size": "686.28 Ko",
+                    "url": "http:\/\/local.news.capstan.fr\/files\/fileable\/articles\/1744027889\/165-beach.jpg"
+                }
+            ],
+            "authors": [
+                {
+                    "id": 1313924920,
+                    "capstan_id": "fa5c7c91f1ae8def9311208df6b1597e043d707e",
+                    "full_name": "Isaac Leger",
+                    "about": "Ut eligendi a tempora dolorem incidunt provident dicta."
+                },
+                {
+                    "id": 2004640303,
+                    "capstan_id": "5ddd505c735396ff3c8b94aef4ecc3cd4886e407",
+                    "full_name": "Luce Maury",
+                    "about": "Voluptas voluptatem fuga aut sit blanditiis."
+                }
+            ]
+        },
+        {
+            "id": 549527563,
+            "title": "Impedit molestiae est accusamus aut nobis ducimus",
+            "type": {
+                "key": "briefs",
+                "name": "Brèves"
+            },
+            "format": "video",
+            "content": "&lt;p&gt;Est blanditiis non deserunt hic sit nobis. Culpa assumenda officia dolores sit. Accusantium reprehenderit sit alias qui autem. Nihil est facere autem perferendis culpa eligendi hic.&lt;\/p&gt;",
+            "image": {
+                "small": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/549527563\/19-small.jpg",
+                "medium": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/549527563\/19-medium.jpg",
+                "large": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/549527563\/19-large.jpg"
+            },
+            "published_at": 1628088600,
+            "themes": [
+                {
+                    "id": 361633176,
+                    "name": "Fuga reiciendis"
+                },
+                {
+                    "id": 1586381803,
+                    "name": "Commodi dicta"
+                }
+            ],
+            "events": [
+                {
+                    "id": 882424897,
+                    "name": "Atque cumque quia animi",
+                    "start_at": 1629424080,
+                    "end_at": 1629452880,
+                    "is_all_day": false
+                }
+            ],
+            "files": [
+                {
+                    "id": 15,
+                    "full_name": "Ex voluptas doloremque.jpg",
+                    "size": "646.40 Ko",
+                    "url": "http:\/\/local.news.capstan.fr\/files\/fileable\/articles\/549527563\/15-ex-voluptas-doloremque.jpg"
+                },
+                {
+                    "id": 16,
+                    "full_name": "Quia qui et.jpg",
+                    "size": "778.56 Ko",
+                    "url": "http:\/\/local.news.capstan.fr\/files\/fileable\/articles\/549527563\/16-quia-qui-et.jpg"
+                }
+            ],
+            "authors": [
+                {
+                    "id": 1689642829,
+                    "full_name": "Aurore Bazin",
+                    "about": "Est natus voluptatem quas magni et aliquam omnis."
+                },
+                {
+                    "id": 1337104472,
+                    "capstan_id": "1d3ad83c6e6cfd65766b28fbd3cd63b50e3b3f8d",
+                    "full_name": "Stéphanie Henry",
+                    "about": "Sapiente quidem placeat eum reiciendis quis.",
+                    "image": {
+                        "small": "http:\/\/local.news.capstan.fr\/images\/imageable\/authors\/1337104472\/5-small.jpg",
+                        "medium": "http:\/\/local.news.capstan.fr\/images\/imageable\/authors\/1337104472\/5-medium.jpg",
+                        "large": "http:\/\/local.news.capstan.fr\/images\/imageable\/authors\/1337104472\/5-large.jpg"
+                    }
+                }
+            ]
+        },
+        {
+            "id": 1042419120,
+            "title": "Similique perspiciatis illum temporibus dolorum",
+            "type": {
+                "key": "briefs",
+                "name": "Brèves"
+            },
+            "format": "default",
+            "content": "&lt;p&gt;Aut eos ab et alias aliquam aliquam dolores. Quam expedita molestiae repellat labore et dolorem modi corporis. Molestiae tenetur dolores molestiae mollitia.&lt;\/p&gt;&lt;p&gt;Voluptatem id recusandae fuga tempora incidunt mollitia. Minus quisquam consequatur quo voluptatem ea vel. Delectus animi vero est laborum aspernatur ducimus nostrum. Quia omnis expedita et corporis enim saepe voluptas. Dicta facilis repellendus suscipit quidem. Et voluptas excepturi omnis non molestiae perspiciatis cumque. Et aperiam voluptatem omnis placeat. Qui hic ipsam possimus sequi.&lt;\/p&gt;&lt;p&gt;Voluptate laboriosam numquam maiores voluptatem quia repellat ut. Facilis quos sit ab cum quis dolorum est. Eaque dolorem iusto voluptates. Architecto voluptates occaecati optio. Natus mollitia veniam accusamus. Dolore repellat repellat amet fugit voluptate. Aut totam quam a laudantium. Deserunt pariatur voluptatem quia aut. Voluptatum quidem ratione deleniti. Asperiores et incidunt vitae voluptatibus. Quia veritatis repellat officiis aut odio id aut. Est id facilis praesentium in esse aut. At facilis qui expedita aut.&lt;\/p&gt;",
+            "image": {
+                "small": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/1042419120\/88-small.jpg",
+                "medium": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/1042419120\/88-medium.jpg",
+                "large": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/1042419120\/88-large.jpg"
+            },
+            "published_at": 1627919220,
+            "themes": [
+                {
+                    "id": 67807538,
+                    "name": "Architecto voluptas"
+                },
+                {
+                    "id": 283234750,
+                    "name": "Nisi ipsum"
+                },
+                {
+                    "id": 357495156,
+                    "name": "Debitis voluptatem"
+                }
+            ],
+            "events": [
+                {
+                    "id": 1873433487,
+                    "name": "Voluptatem aut at est",
+                    "start_at": 1634938140,
+                    "end_at": 1634992140,
+                    "is_all_day": false
+                },
+                {
+                    "id": 1060123589,
+                    "name": "Iusto quo sed",
+                    "start_at": 1636239600,
+                    "end_at": 1636239600,
+                    "is_all_day": true
+                },
+                {
+                    "id": 1445428963,
+                    "name": "Maxime sit eligendi nulla quis",
+                    "start_at": 1643202120,
+                    "end_at": 1643281320,
+                    "is_all_day": false
+                }
+            ],
+            "files": [
+                {
+                    "id": 79,
+                    "full_name": "City-1.jpg",
+                    "size": "504.01 Ko",
+                    "url": "http:\/\/local.news.capstan.fr\/files\/fileable\/articles\/1042419120\/79-city-1.jpg"
+                }
+            ],
+            "authors": [
+                {
+                    "id": 39045081,
+                    "capstan_id": "84eece7142748f399b44a181f5e87a28a17282b9",
+                    "full_name": "Paul Da Silva",
+                    "about": "Sed sit ratione alias necessitatibus.",
+                    "image": {
+                        "small": "http:\/\/local.news.capstan.fr\/images\/imageable\/authors\/39045081\/6-small.jpg",
+                        "medium": "http:\/\/local.news.capstan.fr\/images\/imageable\/authors\/39045081\/6-medium.jpg",
+                        "large": "http:\/\/local.news.capstan.fr\/images\/imageable\/authors\/39045081\/6-large.jpg"
+                    }
+                },
+                {
+                    "id": 1337104472,
+                    "capstan_id": "1d3ad83c6e6cfd65766b28fbd3cd63b50e3b3f8d",
+                    "full_name": "Stéphanie Henry",
+                    "about": "Sapiente quidem placeat eum reiciendis quis.",
+                    "image": {
+                        "small": "http:\/\/local.news.capstan.fr\/images\/imageable\/authors\/1337104472\/5-small.jpg",
+                        "medium": "http:\/\/local.news.capstan.fr\/images\/imageable\/authors\/1337104472\/5-medium.jpg",
+                        "large": "http:\/\/local.news.capstan.fr\/images\/imageable\/authors\/1337104472\/5-large.jpg"
+                    }
+                }
+            ]
+        },
+        {
+            "id": 1356988500,
+            "title": "Iure nam quia ipsum sunt cumque autem",
+            "type": {
+                "key": "analysis",
+                "name": "Analyses"
+            },
+            "format": "video",
+            "content": "&lt;p&gt;Cumque pariatur ea placeat aut. Consequatur sunt non quis sit quo eos vel. Ducimus necessitatibus quia numquam maiores.&lt;\/p&gt;&lt;p&gt;Dolorem non dolorem occaecati nihil. Assumenda molestiae autem quo. Aut ducimus illo reiciendis aspernatur et. Accusantium dolores adipisci non ipsa vel laudantium. Molestias voluptas deleniti ut fugit. Eos aliquid iusto dolorem nihil. Corrupti nulla quisquam enim. Distinctio laboriosam quis enim ut et ut reiciendis. Quisquam rem possimus error non. Totam placeat praesentium nostrum saepe autem ut et. Sed iste eum id quasi.&lt;\/p&gt;",
+            "image": {
+                "small": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/1356988500\/52-small.jpg",
+                "medium": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/1356988500\/52-medium.jpg",
+                "large": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/1356988500\/52-large.jpg"
+            },
+            "published_at": 1627844280,
+            "themes": [
+                {
+                    "id": 32883925,
+                    "name": "Et rem"
+                }
+            ],
+            "authors": [
+                {
+                    "id": 1004426272,
+                    "full_name": "Gabrielle Besnard",
+                    "about": "Sunt praesentium quasi quis quis quae laborum vero hic."
+                },
+                {
+                    "id": 2004640303,
+                    "capstan_id": "5ddd505c735396ff3c8b94aef4ecc3cd4886e407",
+                    "full_name": "Luce Maury",
+                    "about": "Voluptas voluptatem fuga aut sit blanditiis."
+                }
+            ]
+        },
+        {
+            "id": 1948431755,
+            "title": "Est eum impedit laborum nisi hic debitis",
+            "type": {
+                "key": "briefs",
+                "name": "Brèves"
+            },
+            "format": "default",
+            "content": "&lt;p&gt;Harum nobis aut amet eos aut aut. Consequatur et qui aut cumque molestias. Molestiae assumenda harum magnam dolore iste ad velit. Odit odio illo non eius quam et unde. Doloremque nihil ut ut sed. Ea vel vel eum.&lt;\/p&gt;",
+            "image": {
+                "small": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/1948431755\/181-small.jpg",
+                "medium": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/1948431755\/181-medium.jpg",
+                "large": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/1948431755\/181-large.jpg"
+            },
+            "published_at": 1627806660,
+            "themes": [
+                {
+                    "id": 32883925,
+                    "name": "Et rem"
+                },
+                {
+                    "id": 140139850,
+                    "name": "Consectetur odit"
+                },
+                {
+                    "id": 283234750,
+                    "name": "Nisi ipsum"
+                }
+            ],
+            "files": [
+                {
+                    "id": 166,
+                    "full_name": "Quaerat laborum explicabo.jpg",
+                    "size": "104.64 Ko",
+                    "url": "http:\/\/local.news.capstan.fr\/files\/fileable\/articles\/1948431755\/166-quaerat-laborum-explicabo.jpg"
+                }
+            ]
+        },
+        {
+            "id": 1110930368,
+            "title": "Minima saepe quia totam cumque veritatis",
+            "type": {
+                "key": "briefs",
+                "name": "Brèves"
+            },
+            "format": "video",
+            "content": "&lt;p&gt;Exercitationem animi animi autem totam. Aspernatur qui totam veniam error aut et nulla. Maiores architecto ea sunt expedita. Laboriosam vitae quidem praesentium tenetur. Odio deserunt saepe possimus ut sunt deleniti molestias. Harum dolorem nostrum sapiente. Dolores quia ipsum natus culpa placeat. Alias impedit asperiores sed. Eum voluptatem occaecati tenetur debitis sunt iure temporibus.&lt;\/p&gt;&lt;p&gt;Vitae excepturi voluptas est laborum qui quod natus pariatur. Officia quidem beatae exercitationem adipisci in numquam ipsa. Repellat atque ab minus. Iure recusandae voluptas ab at vero id.&lt;\/p&gt;&lt;p&gt;Ex dolorum repudiandae inventore ut qui quidem. Quo blanditiis eaque et vero earum illo. Ratione hic harum facilis voluptas quisquam ut nulla. Deserunt et saepe expedita sint sit sequi amet. Ut fuga possimus eum. Velit est repellendus ex earum.&lt;\/p&gt;&lt;p&gt;Veniam laborum debitis et temporibus deleniti asperiores. Eaque deserunt voluptatem dolorem omnis beatae. Voluptate delectus earum quod sunt. Sint deserunt nihil voluptatem voluptas veniam veniam. Aut ipsam sunt voluptatem voluptatem laborum fuga officia quos. Et quos quo veniam magnam rerum beatae. Rerum rerum dolor magnam. Natus aut sed dolor sapiente dolorem debitis. Harum illo recusandae vero molestias.&lt;\/p&gt;&lt;p&gt;Cupiditate inventore dolor exercitationem aliquid qui et officiis. Consequatur eum quo ab reiciendis. Id veniam iusto ipsam minus recusandae qui et et.&lt;\/p&gt;",
+            "image": {
+                "small": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/1110930368\/112-small.jpg",
+                "medium": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/1110930368\/112-medium.jpg",
+                "large": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/1110930368\/112-large.jpg"
+            },
+            "published_at": 1627663320,
+            "themes": [
+                {
+                    "id": 361633176,
+                    "name": "Fuga reiciendis"
+                },
+                {
+                    "id": 666863612,
+                    "name": "Magnam mollitia"
+                },
+                {
+                    "id": 1497677150,
+                    "name": "Sapiente ad"
+                }
+            ],
+            "events": [
+                {
+                    "id": 1426903354,
+                    "name": "Facere voluptas ratione eius",
+                    "start_at": 1633298400,
+                    "end_at": 1633298400,
+                    "is_all_day": true
+                },
+                {
+                    "id": 742532149,
+                    "name": "Eius vel molestiae",
+                    "start_at": 1636412400,
+                    "end_at": 1636412400,
+                    "is_all_day": true
+                },
+                {
+                    "id": 1487938002,
+                    "name": "Adipisci eligendi est at",
+                    "start_at": 1638745200,
+                    "end_at": 1638745200,
+                    "is_all_day": true
+                }
+            ],
+            "files": [
+                {
+                    "id": 104,
+                    "full_name": "Nemo possimus debitis.jpg",
+                    "size": "386.09 Ko",
+                    "url": "http:\/\/local.news.capstan.fr\/files\/fileable\/articles\/1110930368\/104-nemo-possimus-debitis.jpg"
+                }
+            ]
+        },
+        {
+            "id": 1890505070,
+            "title": "Id a dolor tempore tempore sequi quo eum",
+            "type": {
+                "key": "analysis",
+                "name": "Analyses"
+            },
+            "format": "default",
+            "content": "&lt;p&gt;Incidunt necessitatibus qui voluptas laborum. Et quas quaerat repudiandae laborum voluptatem tenetur. Nihil odit id ipsa similique suscipit aut nesciunt. Magnam accusamus vero et sit expedita aut.&lt;\/p&gt;&lt;p&gt;Saepe voluptatem amet itaque aut enim odio. Nam ut aut tempora fuga cum similique. Deleniti non nisi est minima excepturi magnam. Quidem et exercitationem molestias minima. Repudiandae et non consectetur soluta voluptatum nihil. Et est mollitia dicta nemo. Inventore quod quam quo voluptas voluptatem nobis. Id ullam dignissimos soluta maxime ea aut autem vel.&lt;\/p&gt;&lt;p&gt;Excepturi minima quis enim sint illum blanditiis quo. Tenetur aliquam aliquid fuga blanditiis. Veniam cupiditate sequi ut odio voluptas rem quia. Inventore quo inventore dolorum. Ut iste nihil quas nisi dolor. Consequuntur et eos labore nobis sed officia id. Sed consequuntur tenetur sed accusantium et.&lt;\/p&gt;&lt;p&gt;Pariatur debitis cumque qui odit esse. A magni quaerat quasi corporis nobis eius. Ea quam quisquam doloribus voluptatem ea esse non ad. Quis eaque est quo aliquam quaerat.&lt;\/p&gt;",
+            "image": {
+                "small": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/1890505070\/162-small.jpg",
+                "medium": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/1890505070\/162-medium.jpg",
+                "large": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/1890505070\/162-large.jpg"
+            },
+            "published_at": 1627649460,
+            "themes": [
+                {
+                    "id": 666863612,
+                    "name": "Magnam mollitia"
+                },
+                {
+                    "id": 896972979,
+                    "name": "Consectetur quo"
+                }
+            ],
+            "files": [
+                {
+                    "id": 150,
+                    "full_name": "Landscape-2.jpg",
+                    "size": "646.40 Ko",
+                    "url": "http:\/\/local.news.capstan.fr\/files\/fileable\/articles\/1890505070\/150-landscape-2.jpg"
+                },
+                {
+                    "id": 151,
+                    "full_name": "Rerum rerum debitis.jpg",
+                    "size": "686.28 Ko",
+                    "url": "http:\/\/local.news.capstan.fr\/files\/fileable\/articles\/1890505070\/151-rerum-rerum-debitis.jpg"
+                }
+            ]
+        },
+        {
+            "id": 1351698589,
+            "title": "Sit exercitationem tenetur id pariatur illo itaque maxime",
+            "type": {
+                "key": "briefs",
+                "name": "Brèves"
+            },
+            "format": "default",
+            "content": "&lt;p&gt;Deleniti voluptas aut perferendis veniam doloribus a. Commodi odit laborum a expedita omnis. Eaque voluptas nihil eveniet nostrum vitae itaque rerum. Saepe et quos in dolorem.&lt;\/p&gt;&lt;p&gt;Non alias atque voluptatem perspiciatis sed commodi. Illum voluptatibus ea voluptas autem ratione magni asperiores. Itaque et ipsam ut in sequi. Sint deserunt laudantium ut voluptatum. Voluptas et iusto quia et dolor. Aliquid alias et et error quia voluptatem ducimus. Autem velit quaerat est eius sed atque. Dolores ratione unde nostrum necessitatibus voluptas repellat accusamus odit. Sit perspiciatis ex dolores qui. Sint reiciendis ducimus illum id dolorem.&lt;\/p&gt;&lt;p&gt;Aperiam voluptatem illum qui autem at assumenda. Voluptas facilis dolore facilis explicabo dolor delectus aut. Modi qui sunt sequi.&lt;\/p&gt;",
+            "image": {
+                "small": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/1351698589\/129-small.jpg",
+                "medium": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/1351698589\/129-medium.jpg",
+                "large": "http:\/\/local.news.capstan.fr\/images\/imageable\/articles\/1351698589\/129-large.jpg"
+            },
+            "published_at": 1627624980,
+            "themes": [
+                {
+                    "id": 857655284,
+                    "name": "Ullam beatae"
+                },
+                {
+                    "id": 1681728734,
+                    "name": "Delectus ex"
+                }
+            ],
+            "files": [
+                {
+                    "id": 122,
+                    "full_name": "Minus incidunt voluptatem.jpg",
+                    "size": "229.24 Ko",
+                    "url": "http:\/\/local.news.capstan.fr\/files\/fileable\/articles\/1351698589\/122-minus-incidunt-voluptatem.jpg"
+                },
+                {
+                    "id": 123,
+                    "full_name": "Consectetur vel porro.jpg",
+                    "size": "328.82 Ko",
+                    "url": "http:\/\/local.news.capstan.fr\/files\/fileable\/articles\/1351698589\/123-consectetur-vel-porro.jpg"
+                }
+            ],
+            "authors": [
+                {
+                    "id": 1028943760,
+                    "full_name": "Matthieu Lefevre",
+                    "about": "Ipsa consequatur ipsa dolor vero corporis consequuntur."
+                }
+            ]
+        }
+    ],
+    "links": {
+        "first": "http:\/\/localhost\/api-capstan\/articles?page=1",
+        "last": "http:\/\/localhost\/api-capstan\/articles?page=19",
+        "prev": null,
+        "next": "http:\/\/localhost\/api-capstan\/articles?page=2"
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "last_page": 19,
+        "path": "http:\/\/localhost\/api-capstan\/articles",
+        "per_page": 10,
+        "to": 10,
+        "total": 181
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api-capstan/articles</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>q</code></td>
+<td>optional</td>
+<td>Mots clés de recherche</td>
+</tr>
+<tr>
+<td><code>type_key</code></td>
+<td>optional</td>
+<td>Identifiant du type</td>
+</tr>
+<tr>
+<td><code>theme_id</code></td>
+<td>optional</td>
+<td>Identifiant du thème</td>
+</tr>
+<tr>
+<td><code>author_capstan_id</code></td>
+<td>optional</td>
+<td>Identifiant de l'auteur identique à celui de capstan.fr</td>
+</tr>
+<tr>
+<td><code>favorites</code></td>
+<td>optional</td>
+<td>Seulement les articles favoris</td>
+</tr>
+</tbody>
+</table>
+<!-- END_724ba80acc67319e7f7a0bf47da0692a -->
+<!-- START_f3d0e0338fddda159b10f5a29c790f0a -->
+<h2>Voir un article</h2>
+<p>Cette URL permet d'afficher un article.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://news.capstan.fr/api-capstan/articles/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Capstan-Authorization: 123456"</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://news.capstan.fr/api-capstan/articles/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Capstan-Authorization' =&gt; '123456',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "id": 1,
+        "title": "Tempora in atque necessitatibus assumenda autem",
+        "type": {
+            "key": "videos",
+            "name": "Vidéos"
+        },
+        "format": "video",
+        "content": "&lt;p&gt;Non maiores et occaecati accusantium porro. Ipsa ad qui dolore. Sequi delectus ad quia eos iusto.&lt;\/p&gt;&lt;p&gt;Maiores quod omnis non quis. Eius tempora sint atque. Quia est hic debitis. Mollitia iusto assumenda vitae voluptas repellat aspernatur ut sapiente. Laudantium nemo optio consequuntur autem libero exercitationem. Occaecati qui corporis ex. Qui corporis rerum dolore laborum quam. Quis doloribus rerum numquam iusto maxime doloribus cum id. Asperiores illum consequatur numquam facere quaerat aut. Saepe reiciendis quibusdam ipsum dignissimos exercitationem similique.&lt;\/p&gt;",
+        "video": {
+            "url": "https:\/\/www.youtube.com\/embed\/2nThO8kRcts",
+            "thumb": "https:\/\/img.youtube.com\/vi\/2nThO8kRcts\/sddefault.jpg"
+        },
+        "published_at": 1616588760,
+        "themes": [
+            {
+                "id": 67807538,
+                "name": "Architecto voluptas"
+            },
+            {
+                "id": 490717570,
+                "name": "Eveniet consequatur"
+            }
+        ],
+        "events": [
+            {
+                "id": 500422313,
+                "name": "Asperiores molestiae et doloribus",
+                "start_at": 1640905200,
+                "end_at": 1640905200,
+                "is_all_day": true
+            }
+        ],
+        "files": [
+            {
+                "id": 1,
+                "full_name": "Ipsa placeat quam.jpg",
+                "size": "222.74 Ko",
+                "url": "http:\/\/local.news.capstan.fr\/files\/fileable\/articles\/1\/1-ipsa-placeat-quam.jpg"
+            },
+            {
+                "id": 2,
+                "full_name": "Delectus eligendi pariatur.jpg",
+                "size": "229.24 Ko",
+                "url": "http:\/\/local.news.capstan.fr\/files\/fileable\/articles\/1\/2-delectus-eligendi-pariatur.jpg"
+            }
+        ],
+        "authors": [
+            {
+                "id": 678864284,
+                "capstan_id": "230f2f8464361311e57f20578953840d33673e4e",
+                "full_name": "Richard Berger",
+                "about": "Vero placeat qui eveniet et.",
+                "image": {
+                    "small": "http:\/\/local.news.capstan.fr\/images\/imageable\/authors\/678864284\/4-small.jpg",
+                    "medium": "http:\/\/local.news.capstan.fr\/images\/imageable\/authors\/678864284\/4-medium.jpg",
+                    "large": "http:\/\/local.news.capstan.fr\/images\/imageable\/authors\/678864284\/4-large.jpg"
+                }
+            },
+            {
+                "id": 787689030,
+                "capstan_id": "1f25595e3d96af879d712426a01234017ff38fde",
+                "full_name": "Stéphanie-Manon Traore",
+                "about": "Odio aut nesciunt dolor aut enim."
+            }
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api-capstan/articles/{articleId}</code></p>
+<!-- END_f3d0e0338fddda159b10f5a29c790f0a -->
+<h1>Authentification</h1>
+<!-- START_0188e678329c52b141f273f6172e98fa -->
+<h2>Clé d&#039;API utilisateur</h2>
+<p>Cette URL permet d'afficher la clé d'authentification unique de l'utilisateur grâce à ses informations de
+connexion</p>
+<p>Cette clé d'API est unique pour chaque utilisateur et permet de l'authentifier pour les requêtes où c'est
+nécessaire en rajoutant le header <code>Authorization: Bearer *clé d'API*</code></p>
+<p>La clé d'API doit rester strictement confidentielle et ne doit pas être dévoilée à l'utilisateur pour des
+raisons de sécurité</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://news.capstan.fr/api-capstan/auth/api-token" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Capstan-Authorization: 123456" \
+    -d '{"email":"webmaster@weblogin.fr","password":"123456"}'
+</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://news.capstan.fr/api-capstan/auth/api-token',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Capstan-Authorization' =&gt; '123456',
+        ],
+        'json' =&gt; [
+            'email' =&gt; 'webmaster@weblogin.fr',
+            'password' =&gt; '123456',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "id": 1,
+        "first_name": "Webmaster",
+        "last_name": "WebLogin",
+        "email": "webmaster@weblogin.fr",
+        "favorites": [
+            481023638,
+            993446913,
+            1526230719,
+            1567053587,
+            1836028522
+        ],
+        "api_token": "123456"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api-capstan/auth/api-token</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td>string</td>
+<td>required</td>
+<td>L'adresse email de l'utilisateur</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>string</td>
+<td>required</td>
+<td>Le mot de passe de l'utilisateur</td>
+</tr>
+</tbody>
+</table>
+<!-- END_0188e678329c52b141f273f6172e98fa -->
+<!-- START_461cc599574ea44cb275fbea26eeb267 -->
+<h2>Utilisateur connecté</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Cette URL permet d'afficher les informations de l'utilisateur connecté</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://news.capstan.fr/api-capstan/auth" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Capstan-Authorization: 123456"</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://news.capstan.fr/api-capstan/auth',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Capstan-Authorization' =&gt; '123456',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "id": 1,
+        "first_name": "Webmaster",
+        "last_name": "WebLogin",
+        "email": "webmaster@weblogin.fr",
+        "favorites": [
+            481023638,
+            993446913,
+            1526230719,
+            1567053587,
+            1836028522
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api-capstan/auth</code></p>
+<!-- END_461cc599574ea44cb275fbea26eeb267 -->
+<!-- START_98cf73766bef6149285ae50508a083ff -->
+<h2>Mise à jour profil utilisateur</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Cette URL permet de mettre à jour les informations de l'utilisateur connecté</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "https://news.capstan.fr/api-capstan/auth" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Capstan-Authorization: 123456" \
+    -d '{"email":"contact@weblogin.fr","first_name":"facere","last_name":"mollitia"}'
+</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;put(
+    'https://news.capstan.fr/api-capstan/auth',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Capstan-Authorization' =&gt; '123456',
+        ],
+        'json' =&gt; [
+            'email' =&gt; 'contact@weblogin.fr',
+            'first_name' =&gt; 'facere',
+            'last_name' =&gt; 'mollitia',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "id": 1,
+        "first_name": "Facere",
+        "last_name": "Mollitia",
+        "email": "contact@weblogin.fr",
+        "favorites": [
+            481023638,
+            993446913,
+            1526230719,
+            1567053587,
+            1836028522
+        ]
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api-capstan/auth</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td>string</td>
+<td>required</td>
+<td>L'adresse email de l'utilisateur</td>
+</tr>
+<tr>
+<td><code>first_name</code></td>
+<td>string</td>
+<td>required</td>
+<td>Le prénom de l'utilisateur</td>
+</tr>
+<tr>
+<td><code>last_name</code></td>
+<td>string</td>
+<td>required</td>
+<td>Le nom de famille de l'utilisateur</td>
+</tr>
+</tbody>
+</table>
+<!-- END_98cf73766bef6149285ae50508a083ff -->
+<!-- START_5ee28ea12defd9fbd331679fc817a7b2 -->
+<h2>Création utilisateur</h2>
+<p>Cette URL permet de créer un utilisateur</p>
+<p>Point de vigilance concernant la sécurité et la bonne utilisation du système. Il en est de votre responsabilité
+de sécuriser correctement cette URL. Vous devez vous assurer que les robots ne puissent pas créer de compte et
+qu'un même utilisateur ne puisse pas créer à la chaine de faux comptes (rate limiter). Ces mesures ne peuvent
+pas être prises par l'API car l'IP utilisée est toujours la même (celle de votre serveur), il n'y a donc pas de
+possibilité côté API de sécuriser ce point</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://news.capstan.fr/api-capstan/auth" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Capstan-Authorization: 123456" \
+    -d '{"email":"contact@weblogin.fr","first_name":"earum","last_name":"est","password":"eum"}'
+</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://news.capstan.fr/api-capstan/auth',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Capstan-Authorization' =&gt; '123456',
+        ],
+        'json' =&gt; [
+            'email' =&gt; 'contact@weblogin.fr',
+            'first_name' =&gt; 'earum',
+            'last_name' =&gt; 'est',
+            'password' =&gt; 'eum',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (201):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "id": 2125841228,
+        "first_name": "Earum",
+        "last_name": "Est",
+        "email": "contact@weblogin.fr",
+        "favorites": [],
+        "api_token": "xf11HRX4eFzuH2WXb04C0yNILeIqWhGcDXjzTVfVZppG196BE6SHZfhiSdP5"
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api-capstan/auth</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>email</code></td>
+<td>string</td>
+<td>required</td>
+<td>L'adresse email de l'utilisateur</td>
+</tr>
+<tr>
+<td><code>first_name</code></td>
+<td>string</td>
+<td>required</td>
+<td>Le prénom de l'utilisateur</td>
+</tr>
+<tr>
+<td><code>last_name</code></td>
+<td>string</td>
+<td>required</td>
+<td>Le nom de famille de l'utilisateur</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>string</td>
+<td>required</td>
+<td>Le mot de passe de l'utilisateur</td>
+</tr>
+</tbody>
+</table>
+<!-- END_5ee28ea12defd9fbd331679fc817a7b2 -->
+<h1>Favoris</h1>
+<!-- START_58bd4da697316a0801f98adb522aa9f4 -->
+<h2>Ajout/suppression de favoris</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Cette URL permet de mettre à jour un article favoris. L'appel à cette URL va ajouter l'article en favoris s'il ne
+l'est pas déjà soit le retirer des favoris s'il est déjà en favoris.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://news.capstan.fr/api-capstan/favorites/toggle" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Capstan-Authorization: 123456" \
+</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://news.capstan.fr/api-capstan/favorites/toggle',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Capstan-Authorization' =&gt; '123456',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "id": 1033232878,
+        "first_name": "Arnaude",
+        "last_name": "Nicolas",
+        "email": "laure.philippe@example.com",
+        "favorites": []
+    }
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api-capstan/favorites/toggle</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>article_id</code></td>
+<td>integer</td>
+<td>required</td>
+<td>L'indentifiant de l'article</td>
+</tr>
+</tbody>
+</table>
+<!-- END_58bd4da697316a0801f98adb522aa9f4 -->
+<h1>Thèmes</h1>
+<!-- START_fc6b528feb9037c49282b9ea9f68674b -->
+<h2>Lister les thèmes</h2>
+<p>Cette URL permet de lister l'ensemble des thèmes des articles, trier par ordre alphabétique</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://news.capstan.fr/api-capstan/themes" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Capstan-Authorization: 123456"</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://news.capstan.fr/api-capstan/themes',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Capstan-Authorization' =&gt; '123456',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": [
+        {
+            "id": 205172723,
+            "name": "Quod reiciendis"
+        },
+        {
+            "id": 156078172,
+            "name": "Dolorem et"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api-capstan/themes</code></p>
+<!-- END_fc6b528feb9037c49282b9ea9f68674b -->
+<h1>Types</h1>
+<!-- START_a4b4887ce1b264fbf08e109082c9f1d9 -->
+<h2>Lister les types</h2>
+<p>Cette URL permet de lister l'ensemble des types des articles, trier par ordre alphabétique</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://news.capstan.fr/api-capstan/types" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Capstan-Authorization: 123456"</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://news.capstan.fr/api-capstan/types',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Capstan-Authorization' =&gt; '123456',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": [
+        {
+            "key": "analysis",
+            "name": "Analyses"
+        },
+        {
+            "key": "briefs",
+            "name": "Brèves"
+        },
+        {
+            "key": "videos",
+            "name": "Vidéos"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api-capstan/types</code></p>
+<!-- END_a4b4887ce1b264fbf08e109082c9f1d9 -->
+      </div>
+      <div class="dark-box">
+                        <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="php">php</a>
+                              </div>
+                </div>
+    </div>
+  </body>
+</html>

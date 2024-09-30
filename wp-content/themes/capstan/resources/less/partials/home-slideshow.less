@@ -1,0 +1,121 @@
+.home-slideshow {
+	position:fixed;
+	top:0px;
+	left:0px;
+	bottom:0px;
+	right:0px;
+	z-index: 5;
+	opacity: 0;
+	background: black;
+	display: none;
+	cursor: none;
+
+	.content {
+		user-select: none;
+		position:absolute;
+		top:0px;
+		left:0px;
+		right:0px;
+		bottom:0px;
+
+		display:flex;
+		align-items: center;
+		justify-content: center;
+
+		.title {
+			.f-h1();
+			color:white;
+			text-align:center;
+			max-width:94vw;
+			.line {
+				overflow:hidden;
+			}
+		}
+
+		.number-container {
+			position: relative;
+			margin: auto;
+			width:0px;
+			.number {
+				overflow:hidden;
+				text-align:center;
+				position:absolute;
+				top:-5vh;
+				.inner {
+					.frutiger-roman();
+					font-size:22px;
+					color:@red;
+				}
+			}
+		}
+	}
+
+	.close {
+		position:absolute;
+		top:40px;
+		right:40px;
+		width:167px;
+		height:167px;
+		border-radius: 167px;
+		border:1px solid rgba(255, 255, 255, 0.2);
+		display:flex;
+		align-items: center;
+		justify-content: center;
+		color:white;
+		font-size:20px;
+
+		transform-origin: center center;
+		transition: border 0.2s linear, transform 0.2s;
+		transform: scale(1.0001);
+
+		i {
+			transform-origin: center center;
+			transition: transform 0.2s;
+			transform: scale(1.0001);
+		}
+
+		&:hover {
+			border:1px solid rgba(255, 255, 255, 0.8);
+			transform: scale(0.9);
+			i {
+				transform: scale(1.11);
+			}
+		}
+	}
+	.hold-container {
+		pointer-events: none;
+		position:absolute;
+		top:0px;
+		left:0px;
+		.hold {
+			border:2px solid @red;
+			width:80px;
+			height:80px;
+			border-radius: 40px;
+			display:flex;
+			align-items: center;
+			justify-content: center;
+			transition:transform 0.2s;
+			transform: scale(1.0001);
+
+			.inner {
+				background: @red;
+				width:8px;
+				height:8px;
+				border-radius: 4px;
+				transition:transform 0.2s;
+				transform: scale(1.0001);
+			}
+		}
+		&.click {
+			.hold {
+				transform: scale(0.8);
+				.inner {
+					transform: scale(1.5);
+
+				}
+
+			}
+		}
+	}
+}

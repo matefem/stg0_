@@ -1,0 +1,135 @@
+.module-10 {
+	width:100%;
+	position:relative;
+	background:@dark;
+	overflow:hidden;
+	padding-left:@padding;
+	padding-right:@padding;
+	box-sizing:border-box;
+	text-align: center;
+	padding-bottom: 60px;
+	user-select: none;
+
+	.title {
+		.f-h2-light();
+		color:@white;
+		padding-top: 100px;
+		margin-bottom: 30px;
+		max-width:220px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+
+	.link-arrow-right {
+		color:@white;
+	}
+
+	.gallery {
+		margin-top: 80px;
+		margin-left:-@padding;
+		margin-right:-@padding;
+		padding-left:0px;
+		white-space: nowrap;
+		overflow:visible;
+		padding-bottom: 60px;
+		text-align:left;
+
+		transition: transform 0.2s @out-circ;
+
+		.item {
+			width:80%;
+			display:inline-block;
+			position:relative;
+			white-space: normal;
+			padding-bottom: 50px;
+			border-right:1px solid #363636;
+			padding-right: @padding;
+    		padding-left: @padding;
+    		box-sizing: border-box;
+    		height: 260px;
+    		max-width: 350px;
+    		opacity: 0.8;
+    		transition: opacity 0.4s;
+
+    		&:hover {
+    			opacity: 1;
+    		}
+
+			.category {
+				font-size:12px;
+				line-height:26px;
+				color:@red;
+				text-transform:uppercase;
+				.frutiger-roman();
+				letter-spacing:0.1em;
+			}
+
+			.subtitle {
+				color:@white;
+				font-size:26px;
+				line-height:32px;
+				.tiempo-light();
+				margin-top: 20px;
+
+				a {
+					color:@white;
+				}
+			}
+
+			.date {
+				color:@white;
+				font-size:12px;
+				line-height:26px;
+				.frutiger-roman();
+				margin-top: 20px;
+				opacity:0.3;
+				letter-spacing:0.1em;
+				text-transform:uppercase;
+				align-self:flex-end;
+				position:absolute;
+				bottom:0px;
+				left: @padding;
+				width:100%;
+			}
+		}
+
+	}
+
+	@media @desktop {
+
+		padding-left:@padding_desktop;
+		padding-right:@padding_desktop;
+
+		::-webkit-scrollbar {
+			display:none;
+		}
+
+		.title {
+			max-width: none;
+			margin-bottom: 50px;
+			padding-top: 130px;
+		}
+
+		.gallery {
+			padding-bottom: 60px;
+			margin-top:150px;
+
+			.item {
+				width:45%;
+				padding-right: 60px;
+    			padding-left: 60px;
+    			max-width: 420px;
+    			padding-bottom: 50px;
+    			vertical-align: top;
+
+    			.date {
+					left:60px;
+				}
+
+			}
+
+		}
+
+	}
+
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="11px" viewBox="0 0 10 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 3</title>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="D---04---Avocats" transform="translate(-1016.000000, -2528.000000)" fill="#E62612">
+            <g id="Group-6" transform="translate(834.000000, 2503.000000)">
+                <g id="Group-5" transform="translate(28.000000, 25.000000)">
+                    <g id="Group-3" transform="translate(154.000000, 0.000000)">
+                        <rect id="Rectangle" x="0" y="5" width="10" height="1"></rect>
+                        <rect id="Rectangle" transform="translate(5.000000, 5.500000) rotate(90.000000) translate(-5.000000, -5.500000) " x="0" y="5" width="10" height="1"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

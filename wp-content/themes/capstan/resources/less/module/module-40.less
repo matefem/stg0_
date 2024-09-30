@@ -1,0 +1,151 @@
+.module-40 {
+	width:100%;
+	position:relative;
+	box-sizing:border-box;
+
+	.infos {
+		position:absolute;
+		bottom:0px;
+		left:0px;
+		width:100%;
+		padding-left:@padding;
+		padding-right:@padding;
+		box-sizing:border-box;
+
+		.title {
+			.f-h2-light();
+			font-size:46px;
+			line-height:46px;
+			color:@white;
+			margin-bottom: 40px;
+
+			&.size-medium {
+				font-size:42px;
+				line-height:42px;
+			}
+			&.size-small {
+				font-size:36px;
+				line-height:36px;
+			}
+		}
+
+		.description {
+			.f-arianne();
+			font-size:16px;
+			line-height:27px;
+			margin-bottom: 90px;
+			color:@white;
+		}
+	}
+
+	img {
+		width:100%;
+	}
+
+	.caption {
+		display:none;
+	}
+
+	&.separate {
+		padding-top:90px;
+
+		.infos {
+			position:relative;
+
+			.title {
+				color:@dark;
+				text-align:center;
+			}
+
+			.description {
+				color:@dark;
+				opacity: 0.7;
+				text-align:center;
+			}
+
+		}
+
+		@media @desktop { 
+
+			.infos {
+				
+				.title {
+					text-align:left;
+				}
+
+				.description {
+					text-align:left;
+				}
+
+			}
+
+		}
+
+	}
+
+	&.is-head {
+
+		.image {
+			max-height:60vh;
+			overflow:hidden;
+		}
+
+	}
+
+	@media @desktop {
+
+		padding-left:@padding_desktop;
+		padding-right:@padding_desktop;
+		padding-bottom: 55px;
+		
+		.infos {
+			position:relative;
+			bottom:0px;
+			left:0px;
+			width:100%;
+			box-sizing:border-box;
+			padding-top: 100px;
+	    	padding-bottom: 0px;
+			display:flex;
+			justify-content: space-between;
+			padding-left:0px;
+			padding-right:0px;
+
+			.title {
+				font-size:60px;
+				line-height:70px;
+				color:@dark;
+				width: 50%;
+			}
+
+			.description {
+				max-width:540px;
+				padding-left:70px;
+				margin-bottom: 90px;
+				color:@dark;
+				opacity: 0.7;
+				width: 50%;
+			}
+
+		}
+
+		.image {
+			position:relative;
+		}
+
+		.caption {
+			display:block;
+			position:absolute;
+			bottom:0px;
+			left:0px;
+			background:@red;
+			color:@white;
+			font-size:10px;
+			line-height:19px;
+			padding: 3px 14px;
+			.frutiger-roman();
+		}
+
+	}
+
+}

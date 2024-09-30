@@ -1,0 +1,51 @@
+button[name="form-button"] {
+    transition: color 0.2s linear, background-color 0.2s linear, border-color 0.2s linear;
+    border: none;
+    appearance: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: @red;
+    color: white;
+    margin-top: 40px;
+    height: 60px;
+    line-height: 60px;
+    width: 100%;
+    .frutiger-roman();
+    letter-spacing: 1.4px;
+    font-size: 14px;
+    border: 1px solid transparent;
+
+    @media @desktop {
+        margin-top: 50px;
+        min-width: 280px;
+        width: auto;
+    }
+
+    &.transparent {
+        background: none;
+        border: 1px solid #919191;
+        color: @dark;
+
+        &:hover {
+            background: @red;
+            color: white;
+            border: 1px solid @red;
+        }
+    }
+
+    &[data-disabled="1"] {
+        pointer-events: none;
+        background-color: #F7F7F7;
+        color: #C8C8C8;
+    }
+
+    a {
+        color: inherit;
+    }
+
+    &:hover {
+        background: white;
+        color: @red;
+        border: 1px solid @red;
+    }
+}

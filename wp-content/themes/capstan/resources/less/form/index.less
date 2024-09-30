@@ -1,0 +1,74 @@
+
+@import 'text';
+@import 'button';
+
+
+.form-item {
+    position: relative;
+    text-align: left;
+    .frutiger-roman();
+    height: 60px;
+    line-height: 60px;
+    margin-top: 20px;
+
+    @media @desktop {
+        margin-top: 25px;
+    }
+
+    input::placeholder{
+        opacity: 0.5;
+        color: inherit;
+    }
+
+    input, .placeholder, li {
+        height: 100%;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    label {
+        position: absolute;
+        top: -25px;
+        color: #B6B6B6;
+        font-size: 14px;
+        line-height: 20px;
+        .frutiger-roman();
+
+        @media @desktop {
+            position: relative;
+            top: 0px;
+            padding-left: 7%;
+            padding-right: 5%;
+            width: 44%;
+        }
+    }
+
+    &[data-disabled="1"] {
+        &:not([data-type='password']) {
+            background: @light_gray;
+        }
+
+        input{pointer-events: none;}
+    }
+
+    &.error {
+        &[name="form-text"], &[name="form-select"], &[name="form-radio"] {
+            border-color: @red;
+
+            input, label {
+                color: @red;
+            }
+        }
+        input[type="checkbox"]:not(:checked) {background: @red;}
+        .error-message {
+            font-size: 12px;
+            color: @red;
+            text-align: left;
+            display: block;
+            position: relative;
+            line-height: 12px;
+        }
+        input::placeholder {opacity: 1;}
+    }
+
+}

@@ -1,0 +1,144 @@
+.module-46 {
+	overflow:hidden;
+	position:relative;
+	.globe-container {
+		position:relative;
+	}
+
+	canvas {
+		width:100vw;
+		height:100vh;
+		max-height:80vw;
+		min-height:800px;
+		margin-left:auto;
+		display:block;
+		margin:-5px;
+	}
+
+	.content {
+		padding: 90px 30px 0px;
+		display: block;
+		z-index: 1;
+		.title {
+			.f-h2-medium();
+
+			color:@dark;
+			margin-bottom:30px;
+		}
+
+		.description {
+			.f-paragraph();
+			color:rgba(0,0,0,0.5);
+			width:80%;
+			padding-left:10%;
+		}
+	}
+
+	.globe-callout-manager {
+		position:absolute;
+		left:0px;
+		top: 0px;
+		right:0px;
+		bottom:0px;
+
+		.office-callout {
+			position:absolute;
+			left:0px;
+			top:0px;
+			width: 250px;
+
+			.callout-container {
+				opacity: 0;
+				overflow:hidden;
+				animation: fadeIn 0.5s linear forwards;
+				box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+
+
+				.wrapper {
+					background: white;
+					padding:24px;
+					border-radius:2px;
+					animation: slideIn 0.5s @out-quad forwards;
+				}
+
+				.name {
+					.tiempo-light();
+					font-size:16px;
+					line-height:22px;
+					color: @dark;
+					margin-bottom:8px;
+				}
+				.address {
+					.frutiger-roman();
+					font-size:14px;
+					line-height:18px;
+					color: @light_gray;
+				}
+
+				.arc {
+					position:absolute;
+					right:calc(100% + 10px);
+					top:10px;
+					border-top:1.5px solid @red;
+					border-left:1.5px solid @red;
+					width:40px;
+					height:40px;
+					border-radius: 40px 0px 0px 0px;
+
+					.ref {
+						position:absolute;
+						right:-4px;
+						top:-4px;
+						box-shadow:0px 0px 5px 5px rgba(255,0,0,0.2);
+						width:6px;
+						height:6px;
+						border-radius:3px;
+						background:@red;
+					}
+				}
+			}
+		}
+	}
+
+	@media @desktop {
+		canvas {
+			margin-left:30vw;
+			width:70vw;
+		}
+
+		.globe-callout-manager {
+			.office-callout {
+				left:30vw;
+			}
+		}
+
+
+		.content {
+
+			position:absolute;
+			left:4%;
+			top:0px;
+			bottom:20%;
+
+			display:flex;
+			flex-direction: column;
+			justify-content: center;
+
+			width:32%;
+
+			.title {
+				.f-h2-medium();
+
+				color:@dark;
+				margin-bottom:30px;
+			}
+
+			.description {
+				.f-paragraph();
+				color:rgba(0,0,0,0.5);
+				width:80%;
+				padding-left:10%;
+			}
+		}
+	}
+}
